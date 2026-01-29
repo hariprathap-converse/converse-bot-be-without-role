@@ -260,3 +260,33 @@ def delete_employee_employment_details(db: Session, employee_id: str):
         employee_employment.is_active = False
         db.commit()
     return employee_employment
+
+def get_all_employees(db: Session):
+    employees = (
+        db.query(EmployeeEmploymentDetails)
+        .filter(EmployeeEmploymentDetails.is_active == True)
+        .all()
+    )
+
+    if not employees:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No employees found",
+        )
+
+    result = []
+    for emp in employees:
+        result.append({
+            "employee_id": emp.employee_id,
+            "job_position": emp.job_position,
+            "department": emp.department,
+            "reporting_manager": emp.reporting_manager,
+            "employee_email": emp.employee_email,
+            "start_date": emp.start_date,
+            "employment_type": emp.employment_type,
+            "work_location": emp.work_location,
+            "basic_salary": emp.basic_salary,
+            "is_active": emp.is_active,
+        })
+
+    return result

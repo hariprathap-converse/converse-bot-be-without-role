@@ -3,41 +3,52 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Path, Query, status
 from sqlalchemy.orm import Session
 
-from src.core.authentication import (get_current_employee,
-                                     get_current_employee_roles,
-                                     roles_required)
+from src.core.authentication import (
+    get_current_employee,
+    get_current_employee_roles,
+    roles_required,
+)
 from src.core.database import get_db
 from src.core.utils import send_email_leave
-from src.crud.leave import (create_employee_leave, delete_employee_leave,
-                            get_calender, get_calender_tl,
-                            get_employee_leave_by_month,
-                            get_employee_leave_by_month_tl, get_leave_by_admin,
-                            get_leave_by_employee_id,
-                            get_leave_by_employee_team, get_leave_by_id,
-                            get_leave_by_report_manager, leave_calender,
-                            update_employee_leave, update_employee_teamlead,get_employee_tl,
-                            update_leave_calendar)
+from src.crud.leave import (
+    create_employee_leave,
+    delete_employee_leave,
+    get_calender,
+    get_calender_tl,
+    get_employee_leave_by_month,
+    get_employee_leave_by_month_tl,
+    get_leave_by_admin,
+    get_leave_by_employee_id,
+    get_leave_by_employee_team,
+    get_leave_by_id,
+    get_leave_by_report_manager,
+    leave_calender,
+    update_employee_leave,
+    update_employee_teamlead,
+    get_employee_tl,
+    update_leave_calendar,
+)
 from src.models.leave import LeaveCalendar
 from src.models.personal import EmployeeOnboarding
-from src.schemas.leave import (EmployeeLeaveCreate, EmployeeLeaveUpdate,
-                               LeaveCalendarUpdate)
+from src.schemas.leave import (
+    EmployeeLeaveCreate,
+    EmployeeLeaveUpdate,
+    LeaveCalendarUpdate,
+)
 
 router = APIRouter(
     prefix="/leave", tags=["leave"], responses={400: {"detail": "Not found"}}
 )
 
 
-@router.post(
-    "/", dependencies=[Depends(roles_required("employee", "admin", "teamlead"))]
-)
+@router.post("/")
 async def apply_leave(
     leave: EmployeeLeaveCreate,
     db: Session = Depends(get_db),
-    current_employee=Depends(get_current_employee),
     # Ensure this is the correct type
 ):
     # Accessing employee_id directly from the object
-    employee_id = current_employee.employment_id
+    employee_id = "cds0003"
     if not employee_id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -59,14 +70,11 @@ async def apply_leave(
     }
 
 
-@router.get("/details",
-            dependencies=[Depends(roles_required("employee", "teamlead"))])
-def get_leaves_by_employee(
-    db: Session = Depends(get_db),
-    current_employee=Depends(get_current_employee),
-):
-    current_employee_id = current_employee.employment_id
-    employee_role = get_current_employee_roles(current_employee.id, db).name
+@router.get("/details")
+def get_leaves_by_employee(db: Session = Depends(get_db)):
+    current_employee_id = "cds0003"
+
+    employee_role = get_current_employee_roles(3, db).name
 
     # Determine employee to fetch leave details for
     if employee_role == "employee" or employee_role == "teamlead":
@@ -86,15 +94,10 @@ def get_leaves_by_employee(
     return db_employee
 
 
-@router.get(
-    "/pending/leave",
-    dependencies=[Depends(roles_required("employee", "teamlead"))],
-)
-def get_leave_by(
-    db: Session = Depends(get_db), current_employee=Depends(get_current_employee)
-):
-    current_employee_id = current_employee.employment_id
-    employee_role = get_current_employee_roles(current_employee.id, db)
+@router.get("/pending/leave")
+def get_leave_by(db: Session = Depends(get_db)):
+    current_employee_id = "cds0003"
+    employee_role = get_current_employee_roles(3, db)
     if employee_role.name == "employee":
         db_leave = get_leave_by_id(db, current_employee_id)
     if employee_role.name == "teamlead":
@@ -105,7 +108,12 @@ def get_leave_by(
             detail=f"Employee '{current_employee_id}' has no pending leaves",
         )
     leave_details = [
-        { "leave_id": leave.id,"employee_id": leave.employee.employee_id ,"leave_type":leave.leave_type,"Reason":leave.reason}
+        {
+            "leave_id": leave.id,
+            "employee_id": leave.employee.employee_id,
+            "leave_type": leave.leave_type,
+            "Reason": leave.reason,
+        }
         for leave in db_leave
     ]
 
@@ -141,18 +149,12 @@ def get_leave_of_employee(
     return leave_details
 
 
-@router.get(
-    "/{monthnumber}/{yearnumber}",
-    dependencies=[Depends(roles_required("employee", "teamlead"))],
-)
+@router.get("/{monthnumber}/{yearnumber}")
 def get_leave_by_month(
-    monthnumber: int,
-    yearnumber: int,
-    db: Session = Depends(get_db),
-    current_employee: EmployeeOnboarding = Depends(get_current_employee),
+    monthnumber: int, yearnumber: int, db: Session = Depends(get_db)
 ):
-    current_employee_id = current_employee.employment_id
-    employee_role = get_current_employee_roles(current_employee.id, db)
+    current_employee_id = "cds0003"
+    employee_role = get_current_employee_roles(3, db)
     if employee_role.name == "employee":
         return get_employee_leave_by_month(
             db, current_employee_id, monthnumber, yearnumber
@@ -237,11 +239,10 @@ def delete_leave(
     return {"leave deleted successfully"}
 
 
-@router.get("/calender",
-            )
-async def get_leave_calendar(
-    db: Session = Depends(get_db)
-):
+@router.get(
+    "/calender",
+)
+async def get_leave_calendar(db: Session = Depends(get_db)):
     employee_id = 3
     return get_calender(db, employee_id)
 
@@ -261,28 +262,24 @@ async def get_leave_calendar_tl(
 
 @router.get(
     "/teamlead/employee/",
-    dependencies=[Depends(roles_required("admin","teamlead"))],
+    dependencies=[Depends(roles_required("admin", "teamlead"))],
 )
 async def get_employee_under_tl(
     db: Session = Depends(get_db),
     current_employee=Depends(get_current_employee),
 ):
     report_manager = current_employee.employment_id
-    
-    data= get_employee_tl(db, report_manager)
-    datas = [
-            {
-                    "employee_id":details.employee_id,
-                    "first_name": details.employee.firstname,
-                    "department":details.department,
-                    "job_position":details.job_position,
-                    "is_active": details.is_active,
-                    
-                    
-                    
 
-            }
-            for details in data
-        ]
-        
+    data = get_employee_tl(db, report_manager)
+    datas = [
+        {
+            "employee_id": details.employee_id,
+            "first_name": details.employee.firstname,
+            "department": details.department,
+            "job_position": details.job_position,
+            "is_active": details.is_active,
+        }
+        for details in data
+    ]
+
     return datas

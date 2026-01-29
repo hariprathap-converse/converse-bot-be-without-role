@@ -9,11 +9,13 @@ from sqlalchemy import extract
 from src.core.utils import normalize_string, send_email_leave
 from src.models.association import employee_role
 from src.models.employee import EmployeeEmploymentDetails
-from src.models.leave import (EmployeeLeave, LeaveCalendar, LeaveDuration,
-                              LeaveStatus)
+from src.models.leave import EmployeeLeave, LeaveCalendar, LeaveDuration, LeaveStatus
 from src.models.role import Role
-from src.schemas.leave import (EmployeeLeaveCreate, EmployeeLeaveUpdate,
-                               LeaveCalendarUpdate)
+from src.schemas.leave import (
+    EmployeeLeaveCreate,
+    EmployeeLeaveUpdate,
+    LeaveCalendarUpdate,
+)
 
 
 def adjust_leave_balance(
@@ -44,8 +46,7 @@ def adjust_leave_balance(
     }
     # Retrieve the leave calendar entry for the given employee_id
     leave_calendar = (
-        db.query(LeaveCalendar).filter(
-            LeaveCalendar.employee_id == employee_id).first()
+        db.query(LeaveCalendar).filter(LeaveCalendar.employee_id == employee_id).first()
     )
     if not leave_calendar:
         raise HTTPException(
@@ -131,8 +132,7 @@ def create_leave_balance(
 
     # Retrieve the leave calendar entry for the given employee_id
     leave_calendar = (
-        db.query(LeaveCalendar).filter(
-            LeaveCalendar.employee_id == employee_id).first()
+        db.query(LeaveCalendar).filter(LeaveCalendar.employee_id == employee_id).first()
     )
 
     if not leave_calendar:
@@ -186,8 +186,7 @@ def create_leave_balance(
     return leave_calendar
 
 
-def create_employee_leave(
-        db: Session, leave: EmployeeLeaveCreate, employee_id: str):
+def create_employee_leave(db: Session, leave: EmployeeLeaveCreate, employee_id: str):
     leave_entries = []
     employee_data = (
         db.query(EmployeeEmploymentDetails)
@@ -227,8 +226,7 @@ def create_employee_leave(
         db.add(db_leave)
 
         # Call create_leave_balance and handle its return
-        balance = create_leave_balance(
-            db, employee_data.id, leave_type, leave_entries)
+        balance = create_leave_balance(db, employee_data.id, leave_type, leave_entries)
         print("Updated leave calendar:", balance)
 
     db.commit()
@@ -250,8 +248,7 @@ def create_employee_leave(
     }
 
 
-def get_employee_leave_by_month(
-        db: Session, employee_id: str, month: int, year: int):
+def get_employee_leave_by_month(db: Session, employee_id: str, month: int, year: int):
     employee_data = (
         db.query(EmployeeEmploymentDetails)
         .filter(EmployeeEmploymentDetails.employee_id == employee_id)
@@ -287,7 +284,7 @@ def get_employee_leave_by_month(
         }
         for leave in data
     ]
-    
+
     return structured_data
 
 
@@ -318,27 +315,35 @@ def get_employee_leave_by_month_tl(
         detail=f"Employee '{employee_id}' Not found",
     )
 
-def get_leave_for_slip(db: Session, current_employee_id: str,month:int,year:int):
+
+def get_leave_for_slip(db: Session, current_employee_id: str, month: int, year: int):
     data_id = (
         db.query(EmployeeEmploymentDetails)
         .filter(EmployeeEmploymentDetails.employee_id == current_employee_id)
         .first()
     )
     if not data_id:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"Employee id: '{current_employee_id}' not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Employee id: '{current_employee_id}' not found",
+        )
 
-    data= (
+    data = (
         db.query(EmployeeLeave)
         .filter(
-            EmployeeLeave.status == "approved", EmployeeLeave.employee_id == data_id.id ,
-            EmployeeLeave.leave_type == "unpaid" ,
-            extract('month',EmployeeLeave.start_date)==month,
-            extract('year',EmployeeLeave.start_date)==year,
+            EmployeeLeave.status == "approved",
+            EmployeeLeave.employee_id == data_id.id,
+            EmployeeLeave.leave_type == "unpaid",
+            extract("month", EmployeeLeave.start_date) == month,
+            extract("year", EmployeeLeave.start_date) == year,
         )
         .all()
     )
     if not data:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"No leaves Found for this Employee id: '{current_employee_id}'")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No leaves Found for this Employee id: '{current_employee_id}'",
+        )
     return data
 
 
@@ -349,21 +354,21 @@ def get_leave_by_employee_id(db: Session, employee_id: str):
         .filter(EmployeeEmploymentDetails.employee_id == employee_id)
         .first()
     )
-    
+
     # Raise an exception if the employee is not found
     if not employee_data:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Employee '{employee_id}' not found.",
         )
-    
+
     # Retrieve all leave records for the found employee
     leave_records = (
         db.query(EmployeeLeave)
         .filter(EmployeeLeave.employee_id == employee_data.id)
         .all()
     )
-    
+
     # Structure the leave records for output
     leave_details = [
         {
@@ -377,11 +382,11 @@ def get_leave_by_employee_id(db: Session, employee_id: str):
         }
         for leave in leave_records
     ]
-    
+
     return leave_details
 
-def get_leave_by_employee_team(
-        db: Session, employee_id: str, report_manager: str):
+
+def get_leave_by_employee_team(db: Session, employee_id: str, report_manager: str):
     # Query to get employee data based on employee_id and report_manager
     employee_data = (
         db.query(EmployeeEmploymentDetails)
@@ -428,8 +433,7 @@ def get_leave_by_id(db: Session, current_employee_id: str):
 
 
 def get_leave_by_admin(db: Session):
-    return db.query(EmployeeLeave).filter(
-        EmployeeLeave.status == "pending").all()
+    return db.query(EmployeeLeave).filter(EmployeeLeave.status == "pending").all()
 
 
 def get_leave_by_report_manager(db: Session, report_manager_id: str):
@@ -683,8 +687,7 @@ def leave_calender(db: Session):
 
 def get_calender(db: Session, employee_id: int):
     data = (
-        db.query(LeaveCalendar).filter(
-            LeaveCalendar.employee_id == employee_id).first()
+        db.query(LeaveCalendar).filter(LeaveCalendar.employee_id == employee_id).first()
     )
     if not data:
         raise HTTPException(
@@ -695,7 +698,7 @@ def get_calender(db: Session, employee_id: int):
         "sick_leave": data.sick_leave,
         "personal_leave": data.personal_leave,
         "vacation_leave": data.vacation_leave,
-        "Unpaid_leave": data.unpaid_leave
+        "Unpaid_leave": data.unpaid_leave,
     }
 
 
@@ -728,8 +731,10 @@ def get_calender_tl(db: Session, report_manager: str, employee_id: str):
         "sick_leave": data.sick_leave,
         "personal_leave": data.personal_leave,
         "vacation_leave": data.vacation_leave,
-        "Unpaid_leave": data.unpaid_leave
+        "Unpaid_leave": data.unpaid_leave,
     }
+
+
 def get_employee_tl(db: Session, report_manager: str):
     employee_data = (
         db.query(EmployeeEmploymentDetails)
@@ -744,6 +749,7 @@ def get_employee_tl(db: Session, report_manager: str):
             detail=f"Employee '{report_manager}' not Found or not Authenticate to View Details",
         )
     return employee_data
+
 
 def get_calender_admin(db: Session, employee_id: str):
     employee_data = (
@@ -770,7 +776,7 @@ def get_calender_admin(db: Session, employee_id: str):
         "sick_leave": data.sick_leave,
         "personal_leave": data.personal_leave,
         "vacation_leave": data.vacation_leave,
-        "Unpaid_leave": data.unpaid_leave
+        "Unpaid_leave": data.unpaid_leave,
     }
 
 

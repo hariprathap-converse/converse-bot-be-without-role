@@ -12,6 +12,7 @@ from src.crud.employee import (create_employee_employment_details,
                                delete_employee_employment_details,
                                get_all_employee_employment_details,
                                get_all_employee_teamlead,
+                               get_all_employees,
                                get_all_employee_details_slip,
                                update_employee_employment_details)
 from src.schemas.employee import (EmployeeEmploymentDetailsCreate,
@@ -31,20 +32,21 @@ router = APIRouter(
 
 
 @router.get(
-    "/employees/reademployee",
-    dependencies=[Depends(roles_required("employee", "teamlead"))],
+    "/employees/reademployee"
 )
 async def read_employee(
     db: Session = Depends(get_db),
-    current_employee=Depends(get_current_employee),
 ):
-    current_employee_id = current_employee.employment_id
-    employee_role = get_current_employee_roles(current_employee.id, db)
-
-    if employee_role.name == "employee":
+    current_employee_id ='cds0002'
+    # current_employee_id = current_employee.employment_id
+    employee_role = 'teamlead'
+    # employee_role = get_current_employee_roles(current_employee.id, db)
+    # if employee_role.name == "employee":
+    if employee_role == "employee":
         db_employee = get_all_employee_employment_details(
             db, current_employee_id)
-    elif employee_role.name == "teamlead":
+    # elif employee_role.name == "teamlead":
+    elif employee_role == "teamlead":
         db_employee = get_all_employee_employment_details(
             db, current_employee_id)
     if db_employee is None:
@@ -122,3 +124,6 @@ async def get_salary_slip(month:int,current_employee=Depends(get_current_employe
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(e))
     
+@router.get("/employees", status_code=status.HTTP_200_OK)
+def fetch_all_employees(db: Session = Depends(get_db)):
+    return get_all_employees(db)
