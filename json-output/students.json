@@ -1,0 +1,417 @@
+{
+    "create_new_student": {
+        "project": "create_new_student",
+        "project description": "Create a new student",
+        "url": "/students/",
+        "method": "POST",
+        "Roles": [],
+        "payload": {
+            "first_name": {
+                "description": "first name of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "last_name": {
+                "description": "last name of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "gender": {
+                "description": "gender of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "age": {
+                "description": "age of the student",
+                "datatype": "integer",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "date_of_birth": {
+                "description": "date of birth of the student",
+                "datatype": "date",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "religion": {
+                "description": "religion of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "father_name": {
+                "description": "father's name of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "mother_name": {
+                "description": "mother's name of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "student_email": {
+                "description": "email of the student",
+                "datatype": "EmailStr",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "parent_email": {
+                "description": "parent's email of the student",
+                "datatype": "EmailStr",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "student_contact_no": {
+                "description": "student's contact number",
+                "datatype": "integer",
+                "required": true,
+                "format": "must be at least 10 digits long",
+                "assigned": "None"
+            },
+            "father_contact_no": {
+                "description": "father's contact number",
+                "datatype": "integer",
+                "required": true,
+                "format": "must be at least 10 digits long",
+                "assigned": "None"
+            },
+            "mother_contact_no": {
+                "description": "mother's contact number",
+                "datatype": "Optional[integer]",
+                "required": false,
+                "format": "must be at least 10 digits long if provided",
+                "assigned": "None"
+            },
+            "father_occupation": {
+                "description": "father's occupation",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "mother_occupation": {
+                "description": "mother's occupation",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "address": {
+                "description": "address of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "landmark": {
+                "description": "landmark of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "city": {
+                "description": "city of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "state": {
+                "description": "state of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "country": {
+                "description": "country of the student",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "pincode": {
+                "description": "pincode of the student",
+                "datatype": "integer",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "student_image": {
+                "description": "student's image",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "emergency_contact_name": {
+                "description": "emergency contact name",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "emergency_contact_no": {
+                "description": "emergency contact number",
+                "datatype": "integer",
+                "required": true,
+                "format": "must be at least 10 digits long",
+                "assigned": "None"
+            },
+            "relationship_emergency_contact": {
+                "description": "relationship with emergency contact",
+                "datatype": "string",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            }
+        }
+    },
+    "read_student": {
+        "project": "read_student",
+        "project description": "Read a student by student ID",
+        "url": "/students/{student_id}",
+        "method": "GET",
+        "Roles": [],
+        "payload": {
+            "student_id": {
+                "description": "student ID to read student",
+                "datatype": "integer",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            }
+        }
+    },
+    "read_students": {
+        "project": "read_students",
+        "project description": "Read all students",
+        "url": "/students/",
+        "method": "GET",
+        "Roles": [],
+        "payload": {}
+    },
+    "update_existing_student": {
+        "project": "update_existing_student",
+        "project description": "Update an existing student",
+        "url": "/students/{student_id}",
+        "method": "PUT",
+        "Roles": [],
+        "payload": {
+            "student_id": {
+                "description": "student ID to update student",
+                "datatype": "integer",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            },
+            "first_name": {
+                "description": "first name of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "last_name": {
+                "description": "last name of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "gender": {
+                "description": "gender of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "age": {
+                "description": "age of the student",
+                "datatype": "Optional[int]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "date_of_birth": {
+                "description": "date of birth of the student",
+                "datatype": "Optional[date]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "religion": {
+                "description": "religion of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "father_name": {
+                "description": "father's name of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "mother_name": {
+                "description": "mother's name of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "student_email": {
+                "description": "email of the student",
+                "datatype": "Optional[EmailStr]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "parent_email": {
+                "description": "parent's email of the student",
+                "datatype": "Optional[EmailStr]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "student_contact_no": {
+                "description": "student's contact number",
+                "datatype": "Optional[int]",
+                "required": false,
+                "format": "must be at least 10 digits long if provided",
+                "assigned": "None"
+            },
+            "father_contact_no": {
+                "description": "father's contact number",
+                "datatype": "Optional[int]",
+                "required": false,
+                "format": "must be at least 10 digits long if provided",
+                "assigned": "None"
+            },
+            "mother_contact_no": {
+                "description": "mother's contact number",
+                "datatype": "Optional[Optional[int]]",
+                "required": false,
+                "format": "must be at least 10 digits long if provided",
+                "assigned": "None"
+            },
+            "father_occupation": {
+                "description": "father's occupation",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "mother_occupation": {
+                "description": "mother's occupation",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "address": {
+                "description": "address of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "landmark": {
+                "description": "landmark of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "city": {
+                "description": "city of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "state": {
+                "description": "state of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "country": {
+                "description": "country of the student",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "pincode": {
+                "description": "pincode of the student",
+                "datatype": "Optional[int]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "student_image": {
+                "description": "student's image",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "emergency_contact_name": {
+                "description": "emergency contact name",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            },
+            "emergency_contact_no": {
+                "description": "emergency contact number",
+                "datatype": "Optional[int]",
+                "required": false,
+                "format": "must be at least 10 digits long if provided",
+                "assigned": "None"
+            },
+            "relationship_emergency_contact": {
+                "description": "relationship with emergency contact",
+                "datatype": "Optional[str]",
+                "required": false,
+                "format": "none",
+                "assigned": "None"
+            }
+        }
+    },
+    "delete_existing_student": {
+        "project": "delete_existing_student",
+        "project description": "Delete an existing student",
+        "url": "/students/{student_id}",
+        "method": "DELETE",
+        "Roles": [],
+        "payload": {
+            "student_id": {
+                "description": "student ID to delete student",
+                "datatype": "integer",
+                "required": true,
+                "format": "none",
+                "assigned": "None"
+            }
+        }
+    }
+}
