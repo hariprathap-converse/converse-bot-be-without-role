@@ -17,7 +17,7 @@ class EmployeeBase(BaseModel):
     @field_validator("contactnumber")
     def validate_phone_number(cls, value):
         contact_number_str = str(value)
-        if len(contact_number_str) != 10:
+        if len(contact_number_str) < 10:
             raise ValueError("Invalid phone number length. Phone number must be 10 digits.")
         return value
 

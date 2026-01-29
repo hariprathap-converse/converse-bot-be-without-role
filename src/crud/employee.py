@@ -9,8 +9,13 @@ from src.core.utils import normalize_string
 from src.models.association import employee_role
 from src.models.employee import EmployeeEmploymentDetails
 from src.models.personal import EmployeeOnboarding
-from src.schemas.employee import (EmployeeEmploymentDetailsBase,
-                                  EmployeeEmploymentDetailsUpdate, Login)
+from src.schemas.employee import (
+    EmployeeEmploymentDetailsBase,
+    EmployeeEmploymentDetailsUpdate,
+    Login,
+)
+
+from sqlalchemy import select
 
 
 def create_employee_employment_details(
@@ -121,7 +126,6 @@ def get_all_employee_employment_details(db: Session, employee_id: str):
             detail=f" There is  No Employee Details for this id :{employee_id}. Please check the Personal Details for this employee exist",
         )
     employee_details = {
-
         "employee_id": emp.employee.employment_id,
         "job_position": emp.job_position,
         "department": emp.department,
@@ -131,10 +135,10 @@ def get_all_employee_employment_details(db: Session, employee_id: str):
         "employment_type": emp.employment_type,
         "work_location": emp.work_location,
         "basic_salary": emp.basic_salary,
-        
     }
-    
+
     return employee_details
+
 
 def get_all_employee_details_slip(db: Session, employee_id: str):
     emp = (
@@ -147,12 +151,11 @@ def get_all_employee_details_slip(db: Session, employee_id: str):
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f" There is  No Employee Details for this id :{employee_id}. Please check the Personal Details for this employee exist",
         )
-    
+
     return emp
 
 
-def get_all_employee_teamlead(
-        db: Session, employee_id: str, reporting_manager: str):
+def get_all_employee_teamlead(db: Session, employee_id: str, reporting_manager: str):
     db_employee = (
         db.query(EmployeeEmploymentDetails)
         .filter(
@@ -224,8 +227,7 @@ def update_employee_employment_details(
     # Loop through all the fields in the updates that are set (exclude unset)
     for key, value in updates.dict(exclude_unset=True).items():
         # Normalize specific string fields if present in the update payload
-        if key in ["job_position", "department",
-                   "work_location", "employee_email"]:
+        if key in ["job_position", "department", "work_location", "employee_email"]:
             setattr(employee_employment, key, normalize_string(value))
         # Convert basic_salary to float if it’s not None
         elif key == "basic_salary" and value is not None:
@@ -261,32 +263,58 @@ def delete_employee_employment_details(db: Session, employee_id: str):
         db.commit()
     return employee_employment
 
-def get_all_employees(db: Session):
-    employees = (
-        db.query(EmployeeEmploymentDetails)
-        .filter(EmployeeEmploymentDetails.is_active == True)
-        .all()
-    )
 
-    if not employees:
+# def get_all_employees(db: Session):
+#     employees = (
+#         db.query(EmployeeEmploymentDetails)
+#         .filter(EmployeeEmploymentDetails.is_active == True)
+#         .all()
+#     )
+
+#     if not employees:
+#         raise HTTPException(
+#             status_code=status.HTTP_404_NOT_FOUND,
+#             detail="No employees found",
+#         )
+
+#     result = []
+#     for emp in employees:
+#         result.append({
+#             "employee_id": emp.employee_id,
+#             "job_position": emp.job_position,
+#             "department": emp.department,
+#             "reporting_manager": emp.reporting_manager,
+#             "employee_email": emp.employee_email,
+#             "start_date": emp.start_date,
+#             "employment_type": emp.employment_type,
+#             "work_location": emp.work_location,
+#             "basic_salary": emp.basic_salary,
+#             "is_active": emp.is_active,
+#         })
+
+#     return result
+
+
+def get_all_employees(db: Session):
+    stmt = select(
+        EmployeeEmploymentDetails.employee_id,
+        EmployeeEmploymentDetails.job_position,
+        EmployeeEmploymentDetails.department,
+        EmployeeEmploymentDetails.reporting_manager,
+        EmployeeEmploymentDetails.employee_email,
+        EmployeeEmploymentDetails.start_date,
+        EmployeeEmploymentDetails.employment_type,
+        EmployeeEmploymentDetails.work_location,
+        EmployeeEmploymentDetails.basic_salary,
+        EmployeeEmploymentDetails.is_active,
+    ).where(EmployeeEmploymentDetails.is_active == True)
+
+    result = db.execute(stmt).mappings().all()
+
+    if not result:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="No employees found",
         )
-
-    result = []
-    for emp in employees:
-        result.append({
-            "employee_id": emp.employee_id,
-            "job_position": emp.job_position,
-            "department": emp.department,
-            "reporting_manager": emp.reporting_manager,
-            "employee_email": emp.employee_email,
-            "start_date": emp.start_date,
-            "employment_type": emp.employment_type,
-            "work_location": emp.work_location,
-            "basic_salary": emp.basic_salary,
-            "is_active": emp.is_active,
-        })
 
     return result

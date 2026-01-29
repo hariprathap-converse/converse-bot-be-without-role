@@ -3,14 +3,17 @@ from datetime import date, datetime
 from fastapi import APIRouter, Depends, HTTPException, Path, status
 from sqlalchemy.orm import Session
 
-from src.core.authentication import (get_current_employee,
-                                     get_current_employee_roles,
-                                     roles_required)
+from src.core.authentication import (
+    get_current_employee,
+    get_current_employee_roles,
+    roles_required,
+)
 from src.core.database import SessionLocal
 from src.core.utils import hash_password, normalize_string, send_email
 from src.crud.personal import create_employee, get_employee, update_employee
 from src.models.personal import EmployeeOnboarding
 from src.schemas.personal import EmployeeCreate, EmployeeUpdate
+from fastapi import BackgroundTasks
 
 router = APIRouter(
     prefix="/personal", tags=["Personal"], responses={400: {"detail": "Not found"}}
@@ -41,11 +44,42 @@ def convert_date_format(date_input):
         )
 
 
+# @router.post("/employees")
+# async def create_employee_route(
+#     employee: EmployeeCreate, db: Session = Depends(get_db)
+# ):
+#     # Normalize strings
+#     employee.firstname = normalize_string(employee.firstname)
+#     employee.lastname = normalize_string(employee.lastname)
+#     employee.address = normalize_string(employee.address)
+#     employee.dateofbirth = convert_date_format(employee.dateofbirth)
+#     employee.nationality = normalize_string(employee.nationality)
+#     employee.gender = normalize_string(employee.gender)
+#     employee.maritalstatus = normalize_string(employee.maritalstatus)
+#     employee.emailaddress = normalize_string(employee.emailaddress)
+
+#     # Create employee and get details
+#     # Ensure create_employee is synchronous
+#     details = create_employee(db, employee)
+
+#     # Send the email asynchronously
+#     await send_email(
+#         recipient_email=details["emailaddress"],
+#         name=details["firstname"],
+#         lname=details["lastname"],
+#         Email=details["employee_email"],
+#         Password=details["password"],
+#     )
+
+#     return {"detail": "Email Send Successfully"}
+
+
 @router.post("/employees")
-async def create_employee_route(
-    employee: EmployeeCreate, db: Session = Depends(get_db)
+def create_employee_route(
+    employee: EmployeeCreate,
+    background_tasks: BackgroundTasks,
+    db: Session = Depends(get_db),
 ):
-    # Normalize strings
     employee.firstname = normalize_string(employee.firstname)
     employee.lastname = normalize_string(employee.lastname)
     employee.address = normalize_string(employee.address)
@@ -55,12 +89,10 @@ async def create_employee_route(
     employee.maritalstatus = normalize_string(employee.maritalstatus)
     employee.emailaddress = normalize_string(employee.emailaddress)
 
-    # Create employee and get details
-    # Ensure create_employee is synchronous
     details = create_employee(db, employee)
 
-    # Send the email asynchronously
-    await send_email(
+    background_tasks.add_task(
+        send_email,
         recipient_email=details["emailaddress"],
         name=details["firstname"],
         lname=details["lastname"],
@@ -68,7 +100,7 @@ async def create_employee_route(
         Password=details["password"],
     )
 
-    return {"detail": "Email Send Successfully"}
+    return {"detail": "Employee created. Email will be sent shortly."}
 
 
 @router.get(
@@ -104,8 +136,7 @@ async def update_employee_data(
     current_employee=Depends(get_current_employee),
 ):
     employee_id_c = current_employee.employment_id
-    employee_role = get_current_employee_roles(
-        current_employee.id, db).name.lower()
+    employee_role = get_current_employee_roles(current_employee.id, db).name.lower()
 
     # Perform update based on role
     if employee_role in ["employee", "teamlead"]:

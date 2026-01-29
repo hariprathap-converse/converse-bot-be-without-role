@@ -35,28 +35,59 @@ from src.schemas.leave import (
     EmployeeLeaveUpdate,
     LeaveCalendarUpdate,
 )
+from fastapi import BackgroundTasks
 
 router = APIRouter(
     prefix="/leave", tags=["leave"], responses={400: {"detail": "Not found"}}
 )
 
 
+# @router.post("/")
+# async def apply_leave(
+#     leave: EmployeeLeaveCreate,
+#     db: Session = Depends(get_db),
+#     # Ensure this is the correct type
+# ):
+#     # Accessing employee_id directly from the object
+#     employee_id = "cds0003"
+#     if not employee_id:
+#         raise HTTPException(
+#             status_code=status.HTTP_404_NOT_FOUND,
+#             detail="Invalid Employee data Please Authenticate ",
+#         )
+#     db_leave = create_employee_leave(db, leave, employee_id)
+#     email_leav = db_leave["employee_email"]
+#     await send_email_leave(
+#         db_leave["employee_email"],
+#         db_leave["employee_firstname"],
+#         db_leave["employee_lastname"],
+#         db_leave["leave"],
+#         db_leave["reason"],
+#         db_leave["status"],
+#         db_leave["other_entries"],
+#     )
+#     return {
+#         "details": f"leave applied successfully for '{employee_id}' check your mail '{email_leav}'"
+#     }
+
+
 @router.post("/")
-async def apply_leave(
+def apply_leave(
     leave: EmployeeLeaveCreate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
-    # Ensure this is the correct type
 ):
-    # Accessing employee_id directly from the object
     employee_id = "cds0003"
     if not employee_id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Invalid Employee data Please Authenticate ",
+            detail="Invalid Employee data Please Authenticate",
         )
+
     db_leave = create_employee_leave(db, leave, employee_id)
-    email_leav = db_leave["employee_email"]
-    await send_email_leave(
+
+    background_tasks.add_task(
+        send_email_leave,
         db_leave["employee_email"],
         db_leave["employee_firstname"],
         db_leave["employee_lastname"],
@@ -65,8 +96,9 @@ async def apply_leave(
         db_leave["status"],
         db_leave["other_entries"],
     )
+
     return {
-        "details": f"leave applied successfully for '{employee_id}' check your mail '{email_leav}'"
+        "details": f"Leave applied successfully for '{employee_id}'. Email will be sent."
     }
 
 

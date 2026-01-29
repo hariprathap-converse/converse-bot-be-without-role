@@ -26,7 +26,7 @@ def create_employee(db: Session, employee: EmployeeCreate):
         .filter(EmployeeOnboarding.emailaddress == employee.emailaddress)
         .first()
     )
-    if len(str(employee.contactnumber)) != 10:
+    if len(str(employee.contactnumber)) < 10:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Contact number  must be 10 numbers",
