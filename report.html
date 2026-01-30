@@ -40,9 +40,9 @@
             <li><a target="_blank" href="https://github.com/inconshreveable/sqltap">Code</a></li>
           </ul>
           <p id="total-time" class="navbar-text">
-            <span class="count">0</span> queries spent
-            <span class="sum">0.00</span> seconds
-            over <span class="sum">0.00</span> seconds of profiling
+            <span class="count">3</span> queries spent
+            <span class="sum">0.01</span> seconds
+            over <span class="sum">0.02</span> seconds of profiling
           </p>
           
         </div>
@@ -53,12 +53,57 @@
         <div class="col-xs-3" id="query-groups" style="min-height: 600px">
 
           <ul class="nav nav-pills nav-stacked" id="myTabs">
+            <li class="active">
+              <a href="#query-0" data-toggle="tab">
+                <span class="label label-default pull-right"
+                      style="margin-right: 5px; width: 8ex; text-align: right;">
+                    1r
+                </span>
+                <span class="label label-warning pull-right" style="margin-right: 5px;">
+                    0.005s
+                </span>
+                <span class="label label-info pull-right" style="margin-right: 5px;">
+                  1q
+                </span>
+SELECT
+              </a>
+            </li>
+            <li class="">
+              <a href="#query-1" data-toggle="tab">
+                <span class="label label-default pull-right"
+                      style="margin-right: 5px; width: 8ex; text-align: right;">
+                    1r
+                </span>
+                <span class="label label-warning pull-right" style="margin-right: 5px;">
+                    0.002s
+                </span>
+                <span class="label label-info pull-right" style="margin-right: 5px;">
+                  1q
+                </span>
+SELECT
+              </a>
+            </li>
+            <li class="">
+              <a href="#query-2" data-toggle="tab">
+                <span class="label label-default pull-right"
+                      style="margin-right: 5px; width: 8ex; text-align: right;">
+                    0r
+                </span>
+                <span class="label label-warning pull-right" style="margin-right: 5px;">
+                    0.001s
+                </span>
+                <span class="label label-info pull-right" style="margin-right: 5px;">
+                  1q
+                </span>
+SELECT
+              </a>
+            </li>
           </ul>
 
           <hr />
 
             <div>
-            <span>Report Generated: 2026-01-30 03:57:26</span>
+            <span>Report Generated: 2026-01-30 11:58:23</span>
           </div>
         </div>
 
@@ -67,6 +112,440 @@
         <div class="col-xs-9">
 
           <div class="tab-content">
+            <div id="query-0" class="tab-pane active">
+              <h4 class="toggle">
+                  <ul class="list-inline">
+                    <li>
+                      <dt>Query Count</dt>
+                      <dd>1</dd>
+                    </li>
+                    <li>
+                      <dt>Row Count</dt>
+                      <dd>1</dd>
+                    </li>
+                    <li>
+                      <dt>Total Time</dt>
+                      <dd>0.005</dd>
+                    </li>
+                    <li>
+                      <dt>Mean</dt>
+                      <dd>0.005</dd>
+                    </li>
+                    <li>
+                      <dt>Median</dt>
+                      <dd>0.005</dd>
+                    </li>
+                    <li>
+                      <dt>Min</dt>
+                      <dd>0.005</dd>
+                    </li>
+                    <li>
+                      <dt>Max</dt>
+                      <dd>0.005</dd>
+                    </li>
+                  </ul>
+              </h4>
+
+              <hr />
+              <pre><code class="sql">SELECT roles.id AS roles_id,
+       roles.name AS roles_name,
+       roles.sick_leave AS roles_sick_leave,
+       roles.personal_leave AS roles_personal_leave,
+       roles.vacation_leave AS roles_vacation_leave
+FROM roles
+INNER JOIN employee_role ON roles.id = employee_role.role_id
+WHERE employee_role.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s</code></pre>
+              <hr />
+
+              
+              <h4>
+                Query Breakdown
+              </h4>
+              <table class="table">
+                <tr>
+                  <th>Query Time</th>
+                  <th><code>employee_id_1</code></th>
+                  <th><code>param_1</code></th>
+                  <th>Row Count</th>
+                  <th>Params ID</th>
+                </tr>
+                <tr class="">
+                    <td>0.005</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+              </table>
+
+              <hr />
+              
+              <h4>
+                  1 unique parameter
+                      set is
+                  supplied.
+              </h4>
+              <ul class="details">
+                  <li class="">
+                    <h5>
+                      1
+                      call
+                      (Params ID: 2) with
+                      <tt>
+                        employee_id_1=3, param_1=1
+                      </tt>
+                    </h5>
+                  </li>
+              </ul>
+
+              <hr />
+              
+              <h4>
+                  1 unique
+                      stack issues
+                  this query
+              </h4>
+              <ul class="details">
+                  <li>
+                    <a class="toggle">
+                      <h5>
+                      
+                      1
+                      call from
+                      <strong>get_current_employee_roles</strong> @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py:155
+                      </h5>
+                    </a>
+                    <pre class="trace hidden"><code class="python">File &#34;C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py&#34;, line 1032, in _bootstrap
+    self._bootstrap_inner()
+  File &#34;C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py&#34;, line 1075, in _bootstrap_inner
+    self.run()
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py&#34;, line 859, in run
+    result = context.run(func, *args)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py&#34;, line 132, in get_leave_by
+    employee_role = get_current_employee_roles(3, db)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py&#34;, line 155, in get_current_employee_roles
+    .first()
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py&#34;, line 2728, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py&#34;, line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py&#34;, line 2362, in execute
+    return self._execute_internal(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py&#34;, line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py&#34;, line 293, in orm_execute_statement
+    result = conn.execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py&#34;, line 1418, in execute
+    return meth(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py&#34;, line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py&#34;, line 1653, in _execute_clauseelement
+    self.dispatch.after_execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py&#34;, line 497, in __call__
+    fn(*args, **kw)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py&#34;, line 99, in wrap_leg
+    return fn(*conv(*args))</code></pre>
+                  </li>
+              </ul>
+            </div>
+
+            <!-- ================================================== -->
+
+            <div id="query-1" class="tab-pane ">
+              <h4 class="toggle">
+                  <ul class="list-inline">
+                    <li>
+                      <dt>Query Count</dt>
+                      <dd>1</dd>
+                    </li>
+                    <li>
+                      <dt>Row Count</dt>
+                      <dd>1</dd>
+                    </li>
+                    <li>
+                      <dt>Total Time</dt>
+                      <dd>0.002</dd>
+                    </li>
+                    <li>
+                      <dt>Mean</dt>
+                      <dd>0.002</dd>
+                    </li>
+                    <li>
+                      <dt>Median</dt>
+                      <dd>0.002</dd>
+                    </li>
+                    <li>
+                      <dt>Min</dt>
+                      <dd>0.002</dd>
+                    </li>
+                    <li>
+                      <dt>Max</dt>
+                      <dd>0.002</dd>
+                    </li>
+                  </ul>
+              </h4>
+
+              <hr />
+              <pre><code class="sql">SELECT employee_employment_details.id AS employee_employment_details_id,
+       employee_employment_details.employee_email AS employee_employment_details_employee_email,
+       employee_employment_details.password AS employee_employment_details_password,
+       employee_employment_details.job_position AS employee_employment_details_job_position,
+       employee_employment_details.department AS employee_employment_details_department,
+       employee_employment_details.start_date AS employee_employment_details_start_date,
+       employee_employment_details.employment_type AS employee_employment_details_employment_type,
+       employee_employment_details.reporting_manager AS employee_employment_details_reporting_manager,
+       employee_employment_details.work_location AS employee_employment_details_work_location,
+       employee_employment_details.basic_salary AS employee_employment_details_basic_salary,
+       employee_employment_details.releave_date AS employee_employment_details_releave_date,
+       employee_employment_details.is_active AS employee_employment_details_is_active,
+       employee_employment_details.created_at AS employee_employment_details_created_at,
+       employee_employment_details.updated_at AS employee_employment_details_updated_at,
+       employee_employment_details.employee_id AS employee_employment_details_employee_id
+FROM employee_employment_details
+WHERE employee_employment_details.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s</code></pre>
+              <hr />
+
+              
+              <h4>
+                Query Breakdown
+              </h4>
+              <table class="table">
+                <tr>
+                  <th>Query Time</th>
+                  <th><code>employee_id_1</code></th>
+                  <th><code>param_1</code></th>
+                  <th>Row Count</th>
+                  <th>Params ID</th>
+                </tr>
+                <tr class="">
+                    <td>0.002</td>
+                    <td>cds0003</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>4</td>
+                </tr>
+              </table>
+
+              <hr />
+              
+              <h4>
+                  1 unique parameter
+                      set is
+                  supplied.
+              </h4>
+              <ul class="details">
+                  <li class="">
+                    <h5>
+                      1
+                      call
+                      (Params ID: 4) with
+                      <tt>
+                        employee_id_1=&#39;cds0003&#39;, param_1=1
+                      </tt>
+                    </h5>
+                  </li>
+              </ul>
+
+              <hr />
+              
+              <h4>
+                  1 unique
+                      stack issues
+                  this query
+              </h4>
+              <ul class="details">
+                  <li>
+                    <a class="toggle">
+                      <h5>
+                      
+                      1
+                      call from
+                      <strong>get_leave_by_id</strong> @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:418
+                      </h5>
+                    </a>
+                    <pre class="trace hidden"><code class="python">File &#34;C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py&#34;, line 1032, in _bootstrap
+    self._bootstrap_inner()
+  File &#34;C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py&#34;, line 1075, in _bootstrap_inner
+    self.run()
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py&#34;, line 859, in run
+    result = context.run(func, *args)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py&#34;, line 134, in get_leave_by
+    db_leave = get_leave_by_id(db, current_employee_id)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py&#34;, line 418, in get_leave_by_id
+    .first()
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py&#34;, line 2728, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py&#34;, line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py&#34;, line 2362, in execute
+    return self._execute_internal(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py&#34;, line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py&#34;, line 293, in orm_execute_statement
+    result = conn.execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py&#34;, line 1418, in execute
+    return meth(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py&#34;, line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py&#34;, line 1653, in _execute_clauseelement
+    self.dispatch.after_execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py&#34;, line 497, in __call__
+    fn(*args, **kw)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py&#34;, line 99, in wrap_leg
+    return fn(*conv(*args))</code></pre>
+                  </li>
+              </ul>
+            </div>
+
+            <!-- ================================================== -->
+
+            <div id="query-2" class="tab-pane ">
+              <h4 class="toggle">
+                  <ul class="list-inline">
+                    <li>
+                      <dt>Query Count</dt>
+                      <dd>1</dd>
+                    </li>
+                    <li>
+                      <dt>Row Count</dt>
+                      <dd>0</dd>
+                    </li>
+                    <li>
+                      <dt>Total Time</dt>
+                      <dd>0.001</dd>
+                    </li>
+                    <li>
+                      <dt>Mean</dt>
+                      <dd>0.001</dd>
+                    </li>
+                    <li>
+                      <dt>Median</dt>
+                      <dd>0.001</dd>
+                    </li>
+                    <li>
+                      <dt>Min</dt>
+                      <dd>0.001</dd>
+                    </li>
+                    <li>
+                      <dt>Max</dt>
+                      <dd>0.001</dd>
+                    </li>
+                  </ul>
+              </h4>
+
+              <hr />
+              <pre><code class="sql">SELECT employee_leaves.id AS employee_leaves_id,
+       employee_leaves.employee_id AS employee_leaves_employee_id,
+       employee_leaves.leave_type AS employee_leaves_leave_type,
+       employee_leaves.duration AS employee_leaves_duration,
+       employee_leaves.start_date AS employee_leaves_start_date,
+       employee_leaves.end_date AS employee_leaves_end_date,
+       employee_leaves.status AS employee_leaves_status,
+       employee_leaves.reason AS employee_leaves_reason,
+       employee_leaves.reject_reason AS employee_leaves_reject_reason,
+       employee_leaves.created_at AS employee_leaves_created_at,
+       employee_leaves.updated_at AS employee_leaves_updated_at
+FROM employee_leaves
+WHERE employee_leaves.status = %(status_1)s
+  AND employee_leaves.employee_id = %(employee_id_1)s</code></pre>
+              <hr />
+
+              
+              <h4>
+                Query Breakdown
+              </h4>
+              <table class="table">
+                <tr>
+                  <th>Query Time</th>
+                  <th><code>employee_id_1</code></th>
+                  <th><code>status_1</code></th>
+                  <th>Row Count</th>
+                  <th>Params ID</th>
+                </tr>
+                <tr class="">
+                    <td>0.001</td>
+                    <td>3</td>
+                    <td>pending</td>
+                    <td>0</td>
+                    <td>6</td>
+                </tr>
+              </table>
+
+              <hr />
+              
+              <h4>
+                  1 unique parameter
+                      set is
+                  supplied.
+              </h4>
+              <ul class="details">
+                  <li class="">
+                    <h5>
+                      1
+                      call
+                      (Params ID: 6) with
+                      <tt>
+                        employee_id_1=3, status_1=&#39;pending&#39;
+                      </tt>
+                    </h5>
+                  </li>
+              </ul>
+
+              <hr />
+              
+              <h4>
+                  1 unique
+                      stack issues
+                  this query
+              </h4>
+              <ul class="details">
+                  <li>
+                    <a class="toggle">
+                      <h5>
+                      
+                      1
+                      call from
+                      <strong>get_leave_by_id</strong> @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:431
+                      </h5>
+                    </a>
+                    <pre class="trace hidden"><code class="python">File &#34;C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py&#34;, line 1032, in _bootstrap
+    self._bootstrap_inner()
+  File &#34;C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py&#34;, line 1075, in _bootstrap_inner
+    self.run()
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py&#34;, line 859, in run
+    result = context.run(func, *args)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py&#34;, line 134, in get_leave_by
+    db_leave = get_leave_by_id(db, current_employee_id)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py&#34;, line 431, in get_leave_by_id
+    .all()
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py&#34;, line 2673, in all
+    return self._iter().all()  # type: ignore
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py&#34;, line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py&#34;, line 2362, in execute
+    return self._execute_internal(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py&#34;, line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py&#34;, line 293, in orm_execute_statement
+    result = conn.execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py&#34;, line 1418, in execute
+    return meth(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py&#34;, line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py&#34;, line 1653, in _execute_clauseelement
+    self.dispatch.after_execute(
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py&#34;, line 497, in __call__
+    fn(*args, **kw)
+  File &#34;C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py&#34;, line 99, in wrap_leg
+    return fn(*conv(*args))</code></pre>
+                  </li>
+              </ul>
+            </div>
+
+            <!-- ================================================== -->
+
           </div>
         </div>
     </div><!-- /.container -->

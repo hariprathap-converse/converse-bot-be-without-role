@@ -54398,3 +54398,1040 @@ Total profiling time: 0.00 second(s)
 
 
 
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:03:24
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:04:41
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:08:01
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:23:07
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:24:25
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:24:33
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:24:46
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:25:13
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:25:15
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:25:27
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:26:14
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:28:03
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:29:57
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:39:11
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:44:02
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 10:48:02
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 0
+Total time: 0.00 second(s)
+Total profiling time: 0.00 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 11:55:14
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 4
+Total time: 0.51 second(s)
+Total profiling time: 0.52 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+============                  QueryGroup 0                  ============
+------------              QueryGroup 0 summary              ------------
+Query count: 1
+Query max time: 0.372 second(s)
+Query min time: 0.372 second(s)
+Query mean time: 0.372 second(s)
+Query median time: 0.372 second(s)
+
+------------            QueryGroup 0 SQL pattern            ------------
+SELECT roles.id AS roles_id,
+       roles.name AS roles_name,
+       roles.sick_leave AS roles_sick_leave,
+       roles.personal_leave AS roles_personal_leave,
+       roles.vacation_leave AS roles_vacation_leave
+FROM roles
+INNER JOIN employee_role ON roles.id = employee_role.role_id
+WHERE employee_role.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s
+
+------------             QueryGroup 0 breakdown             ------------
+Query 0:
+  Query duration: 0.372 second(s)
+  Query params:
+    employee_id_1: 3
+    param_1: 1
+  Query rowcount: 1
+
+------------              QueryGroup 0 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_current_employee_roles @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py:155
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 132, in get_leave_by
+      employee_role = get_current_employee_roles(3, db)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py", line 155, in get_current_employee_roles
+      .first()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+      return self.limit(1)._iter().first()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+============                  QueryGroup 1                  ============
+------------              QueryGroup 1 summary              ------------
+Query count: 1
+Query max time: 0.060 second(s)
+Query min time: 0.060 second(s)
+Query mean time: 0.060 second(s)
+Query median time: 0.060 second(s)
+
+------------            QueryGroup 1 SQL pattern            ------------
+SELECT employee_employment_details.id AS employee_employment_details_id,
+       employee_employment_details.employee_email AS employee_employment_details_employee_email,
+       employee_employment_details.password AS employee_employment_details_password,
+       employee_employment_details.job_position AS employee_employment_details_job_position,
+       employee_employment_details.department AS employee_employment_details_department,
+       employee_employment_details.start_date AS employee_employment_details_start_date,
+       employee_employment_details.employment_type AS employee_employment_details_employment_type,
+       employee_employment_details.reporting_manager AS employee_employment_details_reporting_manager,
+       employee_employment_details.work_location AS employee_employment_details_work_location,
+       employee_employment_details.basic_salary AS employee_employment_details_basic_salary,
+       employee_employment_details.releave_date AS employee_employment_details_releave_date,
+       employee_employment_details.is_active AS employee_employment_details_is_active,
+       employee_employment_details.created_at AS employee_employment_details_created_at,
+       employee_employment_details.updated_at AS employee_employment_details_updated_at,
+       employee_employment_details.employee_id AS employee_employment_details_employee_id
+FROM employee_employment_details
+WHERE employee_employment_details.id = %(pk_1)s
+
+------------             QueryGroup 1 breakdown             ------------
+Query 0:
+  Query duration: 0.060 second(s)
+  Query params:
+    pk_1: 3
+  Query rowcount: 1
+
+------------              QueryGroup 1 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_leave_by @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py:145
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 145, in get_leave_by
+      "employee_id": leave.employee.employee_id,
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+      return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+      value = self._fire_loader_callables(state, key, passive)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1121, in _fire_loader_callables
+      return self.callable_(state, passive)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\strategies.py", line 967, in _load_for_state
+      return self._emit_lazyload(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\strategies.py", line 1068, in _emit_lazyload
+      return loading.load_on_pk_identity(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+      session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+============                  QueryGroup 2                  ============
+------------              QueryGroup 2 summary              ------------
+Query count: 1
+Query max time: 0.053 second(s)
+Query min time: 0.053 second(s)
+Query mean time: 0.053 second(s)
+Query median time: 0.053 second(s)
+
+------------            QueryGroup 2 SQL pattern            ------------
+SELECT employee_employment_details.id AS employee_employment_details_id,
+       employee_employment_details.employee_email AS employee_employment_details_employee_email,
+       employee_employment_details.password AS employee_employment_details_password,
+       employee_employment_details.job_position AS employee_employment_details_job_position,
+       employee_employment_details.department AS employee_employment_details_department,
+       employee_employment_details.start_date AS employee_employment_details_start_date,
+       employee_employment_details.employment_type AS employee_employment_details_employment_type,
+       employee_employment_details.reporting_manager AS employee_employment_details_reporting_manager,
+       employee_employment_details.work_location AS employee_employment_details_work_location,
+       employee_employment_details.basic_salary AS employee_employment_details_basic_salary,
+       employee_employment_details.releave_date AS employee_employment_details_releave_date,
+       employee_employment_details.is_active AS employee_employment_details_is_active,
+       employee_employment_details.created_at AS employee_employment_details_created_at,
+       employee_employment_details.updated_at AS employee_employment_details_updated_at,
+       employee_employment_details.employee_id AS employee_employment_details_employee_id
+FROM employee_employment_details
+WHERE employee_employment_details.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s
+
+------------             QueryGroup 2 breakdown             ------------
+Query 0:
+  Query duration: 0.053 second(s)
+  Query params:
+    employee_id_1: cds0003
+    param_1: 1
+  Query rowcount: 1
+
+------------              QueryGroup 2 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_leave_by_id @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:418
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 134, in get_leave_by
+      db_leave = get_leave_by_id(db, current_employee_id)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py", line 418, in get_leave_by_id
+      .first()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+      return self.limit(1)._iter().first()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+============                  QueryGroup 3                  ============
+------------              QueryGroup 3 summary              ------------
+Query count: 1
+Query max time: 0.020 second(s)
+Query min time: 0.020 second(s)
+Query mean time: 0.020 second(s)
+Query median time: 0.020 second(s)
+
+------------            QueryGroup 3 SQL pattern            ------------
+SELECT employee_leaves.id AS employee_leaves_id,
+       employee_leaves.employee_id AS employee_leaves_employee_id,
+       employee_leaves.leave_type AS employee_leaves_leave_type,
+       employee_leaves.duration AS employee_leaves_duration,
+       employee_leaves.start_date AS employee_leaves_start_date,
+       employee_leaves.end_date AS employee_leaves_end_date,
+       employee_leaves.status AS employee_leaves_status,
+       employee_leaves.reason AS employee_leaves_reason,
+       employee_leaves.reject_reason AS employee_leaves_reject_reason,
+       employee_leaves.created_at AS employee_leaves_created_at,
+       employee_leaves.updated_at AS employee_leaves_updated_at
+FROM employee_leaves
+WHERE employee_leaves.status = %(status_1)s
+  AND employee_leaves.employee_id = %(employee_id_1)s
+
+------------             QueryGroup 3 breakdown             ------------
+Query 0:
+  Query duration: 0.020 second(s)
+  Query params:
+    status_1: pending
+    employee_id_1: 3
+  Query rowcount: 9
+
+------------              QueryGroup 3 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_leave_by_id @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:431
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 134, in get_leave_by
+      db_leave = get_leave_by_id(db, current_employee_id)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py", line 431, in get_leave_by_id
+      .all()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2673, in all
+      return self._iter().all()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 11:55:53
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 3
+Total time: 0.05 second(s)
+Total profiling time: 0.06 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+============                  QueryGroup 0                  ============
+------------              QueryGroup 0 summary              ------------
+Query count: 1
+Query max time: 0.016 second(s)
+Query min time: 0.016 second(s)
+Query mean time: 0.016 second(s)
+Query median time: 0.016 second(s)
+
+------------            QueryGroup 0 SQL pattern            ------------
+SELECT employee_employment_details.id AS employee_employment_details_id,
+       employee_employment_details.employee_email AS employee_employment_details_employee_email,
+       employee_employment_details.password AS employee_employment_details_password,
+       employee_employment_details.job_position AS employee_employment_details_job_position,
+       employee_employment_details.department AS employee_employment_details_department,
+       employee_employment_details.start_date AS employee_employment_details_start_date,
+       employee_employment_details.employment_type AS employee_employment_details_employment_type,
+       employee_employment_details.reporting_manager AS employee_employment_details_reporting_manager,
+       employee_employment_details.work_location AS employee_employment_details_work_location,
+       employee_employment_details.basic_salary AS employee_employment_details_basic_salary,
+       employee_employment_details.releave_date AS employee_employment_details_releave_date,
+       employee_employment_details.is_active AS employee_employment_details_is_active,
+       employee_employment_details.created_at AS employee_employment_details_created_at,
+       employee_employment_details.updated_at AS employee_employment_details_updated_at,
+       employee_employment_details.employee_id AS employee_employment_details_employee_id
+FROM employee_employment_details
+WHERE employee_employment_details.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s
+
+------------             QueryGroup 0 breakdown             ------------
+Query 0:
+  Query duration: 0.016 second(s)
+  Query params:
+    employee_id_1: cds0003
+    param_1: 1
+  Query rowcount: 1
+
+------------              QueryGroup 0 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_leave_by_id @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:418
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 134, in get_leave_by
+      db_leave = get_leave_by_id(db, current_employee_id)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py", line 418, in get_leave_by_id
+      .first()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+      return self.limit(1)._iter().first()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+============                  QueryGroup 1                  ============
+------------              QueryGroup 1 summary              ------------
+Query count: 1
+Query max time: 0.016 second(s)
+Query min time: 0.016 second(s)
+Query mean time: 0.016 second(s)
+Query median time: 0.016 second(s)
+
+------------            QueryGroup 1 SQL pattern            ------------
+SELECT roles.id AS roles_id,
+       roles.name AS roles_name,
+       roles.sick_leave AS roles_sick_leave,
+       roles.personal_leave AS roles_personal_leave,
+       roles.vacation_leave AS roles_vacation_leave
+FROM roles
+INNER JOIN employee_role ON roles.id = employee_role.role_id
+WHERE employee_role.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s
+
+------------             QueryGroup 1 breakdown             ------------
+Query 0:
+  Query duration: 0.016 second(s)
+  Query params:
+    employee_id_1: 3
+    param_1: 1
+  Query rowcount: 1
+
+------------              QueryGroup 1 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_current_employee_roles @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py:155
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 132, in get_leave_by
+      employee_role = get_current_employee_roles(3, db)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py", line 155, in get_current_employee_roles
+      .first()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+      return self.limit(1)._iter().first()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+============                  QueryGroup 2                  ============
+------------              QueryGroup 2 summary              ------------
+Query count: 1
+Query max time: 0.015 second(s)
+Query min time: 0.015 second(s)
+Query mean time: 0.015 second(s)
+Query median time: 0.015 second(s)
+
+------------            QueryGroup 2 SQL pattern            ------------
+SELECT employee_leaves.id AS employee_leaves_id,
+       employee_leaves.employee_id AS employee_leaves_employee_id,
+       employee_leaves.leave_type AS employee_leaves_leave_type,
+       employee_leaves.duration AS employee_leaves_duration,
+       employee_leaves.start_date AS employee_leaves_start_date,
+       employee_leaves.end_date AS employee_leaves_end_date,
+       employee_leaves.status AS employee_leaves_status,
+       employee_leaves.reason AS employee_leaves_reason,
+       employee_leaves.reject_reason AS employee_leaves_reject_reason,
+       employee_leaves.created_at AS employee_leaves_created_at,
+       employee_leaves.updated_at AS employee_leaves_updated_at
+FROM employee_leaves
+WHERE employee_leaves.status = %(status_1)s
+  AND employee_leaves.employee_id = %(employee_id_1)s
+
+------------             QueryGroup 2 breakdown             ------------
+Query 0:
+  Query duration: 0.015 second(s)
+  Query params:
+    status_1: pending
+    employee_id_1: 3
+  Query rowcount: 0
+
+------------              QueryGroup 2 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_leave_by_id @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:431
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 134, in get_leave_by
+      db_leave = get_leave_by_id(db, current_employee_id)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py", line 431, in get_leave_by_id
+      .all()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2673, in all
+      return self._iter().all()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+
+
+========================================================================
+======                  SQLTap Profiling Report                   ======
+========================================================================
+Report Generated Time: 2026-01-30 11:58:23
+
+========================================================================
+======                          Summary                           ======
+========================================================================
+Total queries: 3
+Total time: 0.01 second(s)
+Total profiling time: 0.02 second(s)
+
+========================================================================
+======                          Details                           ======
+========================================================================
+
+============                  QueryGroup 0                  ============
+------------              QueryGroup 0 summary              ------------
+Query count: 1
+Query max time: 0.005 second(s)
+Query min time: 0.005 second(s)
+Query mean time: 0.005 second(s)
+Query median time: 0.005 second(s)
+
+------------            QueryGroup 0 SQL pattern            ------------
+SELECT roles.id AS roles_id,
+       roles.name AS roles_name,
+       roles.sick_leave AS roles_sick_leave,
+       roles.personal_leave AS roles_personal_leave,
+       roles.vacation_leave AS roles_vacation_leave
+FROM roles
+INNER JOIN employee_role ON roles.id = employee_role.role_id
+WHERE employee_role.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s
+
+------------             QueryGroup 0 breakdown             ------------
+Query 0:
+  Query duration: 0.005 second(s)
+  Query params:
+    employee_id_1: 3
+    param_1: 1
+  Query rowcount: 1
+
+------------              QueryGroup 0 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_current_employee_roles @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py:155
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 132, in get_leave_by
+      employee_role = get_current_employee_roles(3, db)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\core\authentication.py", line 155, in get_current_employee_roles
+      .first()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+      return self.limit(1)._iter().first()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+============                  QueryGroup 1                  ============
+------------              QueryGroup 1 summary              ------------
+Query count: 1
+Query max time: 0.002 second(s)
+Query min time: 0.002 second(s)
+Query mean time: 0.002 second(s)
+Query median time: 0.002 second(s)
+
+------------            QueryGroup 1 SQL pattern            ------------
+SELECT employee_employment_details.id AS employee_employment_details_id,
+       employee_employment_details.employee_email AS employee_employment_details_employee_email,
+       employee_employment_details.password AS employee_employment_details_password,
+       employee_employment_details.job_position AS employee_employment_details_job_position,
+       employee_employment_details.department AS employee_employment_details_department,
+       employee_employment_details.start_date AS employee_employment_details_start_date,
+       employee_employment_details.employment_type AS employee_employment_details_employment_type,
+       employee_employment_details.reporting_manager AS employee_employment_details_reporting_manager,
+       employee_employment_details.work_location AS employee_employment_details_work_location,
+       employee_employment_details.basic_salary AS employee_employment_details_basic_salary,
+       employee_employment_details.releave_date AS employee_employment_details_releave_date,
+       employee_employment_details.is_active AS employee_employment_details_is_active,
+       employee_employment_details.created_at AS employee_employment_details_created_at,
+       employee_employment_details.updated_at AS employee_employment_details_updated_at,
+       employee_employment_details.employee_id AS employee_employment_details_employee_id
+FROM employee_employment_details
+WHERE employee_employment_details.employee_id = %(employee_id_1)s
+LIMIT %(param_1)s
+
+------------             QueryGroup 1 breakdown             ------------
+Query 0:
+  Query duration: 0.002 second(s)
+  Query params:
+    employee_id_1: cds0003
+    param_1: 1
+  Query rowcount: 1
+
+------------              QueryGroup 1 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_leave_by_id @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:418
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 134, in get_leave_by
+      db_leave = get_leave_by_id(db, current_employee_id)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py", line 418, in get_leave_by_id
+      .first()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+      return self.limit(1)._iter().first()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+============                  QueryGroup 2                  ============
+------------              QueryGroup 2 summary              ------------
+Query count: 1
+Query max time: 0.001 second(s)
+Query min time: 0.001 second(s)
+Query mean time: 0.001 second(s)
+Query median time: 0.001 second(s)
+
+------------            QueryGroup 2 SQL pattern            ------------
+SELECT employee_leaves.id AS employee_leaves_id,
+       employee_leaves.employee_id AS employee_leaves_employee_id,
+       employee_leaves.leave_type AS employee_leaves_leave_type,
+       employee_leaves.duration AS employee_leaves_duration,
+       employee_leaves.start_date AS employee_leaves_start_date,
+       employee_leaves.end_date AS employee_leaves_end_date,
+       employee_leaves.status AS employee_leaves_status,
+       employee_leaves.reason AS employee_leaves_reason,
+       employee_leaves.reject_reason AS employee_leaves_reject_reason,
+       employee_leaves.created_at AS employee_leaves_created_at,
+       employee_leaves.updated_at AS employee_leaves_updated_at
+FROM employee_leaves
+WHERE employee_leaves.status = %(status_1)s
+  AND employee_leaves.employee_id = %(employee_id_1)s
+
+------------             QueryGroup 2 breakdown             ------------
+Query 0:
+  Query duration: 0.001 second(s)
+  Query params:
+    status_1: pending
+    employee_id_1: 3
+  Query rowcount: 0
+
+------------              QueryGroup 2 stacks               ------------
+Total unique stack(s): 1
+
+Stack 0:
+  1 call(s) from get_leave_by_id @C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py:431
+  Traceback:
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1032, in _bootstrap
+      self._bootstrap_inner()
+    File "C:\Users\Hariprathap\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+      result = context.run(func, *args)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\routers\leave.py", line 134, in get_leave_by
+      db_leave = get_leave_by_id(db, current_employee_id)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\src\crud\leave.py", line 431, in get_leave_by_id
+      .all()
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2673, in all
+      return self._iter().all()  # type: ignore
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+      result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+      return self._execute_internal(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+      result: Result[Any] = compile_state_cls.orm_execute_statement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+      result = conn.execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+      return meth(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+      return connection._execute_clauseelement(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1653, in _execute_clauseelement
+      self.dispatch.after_execute(
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
+      fn(*args, **kw)
+    File "C:\Users\Hariprathap\Desktop\employee-chatbot-be\converse-bot-be-without-role\venv\Lib\site-packages\sqlalchemy\event\legacy.py", line 99, in wrap_leg
+      return fn(*conv(*args))
+
+
+

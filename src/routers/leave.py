@@ -114,7 +114,7 @@ def get_leaves_by_employee(db: Session = Depends(get_db)):
     else:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Employee id :{current_employee_id.employee_id} not found",
+            detail=f"There is no leave found",
         )
 
     if not db_employee:
@@ -137,7 +137,7 @@ def get_leave_by(db: Session = Depends(get_db)):
     if not db_leave:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Employee '{current_employee_id}' has no pending leaves",
+            detail=f"You not have pending leaves",
         )
     leave_details = [
         {
@@ -166,7 +166,7 @@ def get_leave_of_employee(
     if not db_leave:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Employee '{current_employee_id.employee_id}' has no pending leaves",
+            detail=f"You not have pending leavess",
         )
     leave_details = [
         {
@@ -196,7 +196,7 @@ def get_leave_by_month(
         return get_employee_leave_by_month(
             db, current_employee_id, monthnumber, yearnumber
         )
-    return {"detail": f" No leaves Applied for This Month to '{current_employee_id}' "}
+    return {"detail": f" No leaves Applied for This Month to  "}
 
 
 @router.put(
