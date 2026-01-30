@@ -120,7 +120,7 @@ def get_leaves_by_employee(db: Session = Depends(get_db)):
     if not db_employee:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Employee '{current_employee_id}' not applied for leave",
+            detail=f"You have not applied for leave",
         )
 
     return db_employee
