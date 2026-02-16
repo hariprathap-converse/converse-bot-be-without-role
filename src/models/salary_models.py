@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Date, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, Date, ForeignKey, JSON
 from sqlalchemy.orm import relationship
 from src.core.salary_database import SalaryBase
 
@@ -48,3 +48,31 @@ class Incentive(SalaryBase):
     date = Column(Date)
 
     employee = relationship("Employee", back_populates="incentives")
+
+class TableMetadata(SalaryBase):
+    __tablename__ = "table_metadata"
+
+    id = Column(Integer, primary_key=True, index=True)
+    table_name = Column(String(100), unique=True, index=True)
+    title = Column(String(200))
+    description = Column(String(500))
+    table_description = Column(String(500))
+    options = Column(JSON, nullable=True)
+
+    columns = relationship("ColumnMetadata", back_populates="table", cascade="all, delete-orphan")
+
+class ColumnMetadata(SalaryBase):
+    __tablename__ = "column_metadata"
+
+    id = Column(Integer, primary_key=True, index=True)
+    table_id = Column(Integer, ForeignKey("table_metadata.id"))
+    accessor_key = Column(String(100))
+    header = Column(String(100))
+    description = Column(String(500))
+    width = Column(Integer)
+    type = Column(String(50)) # 'number', 'string', etc.
+    cell_type = Column(String(50)) # 'avatar', 'badge', 'currency', etc.
+    cell_config = Column(JSON, nullable=True)
+    default_chart_type = Column(String(50), nullable=True)
+    
+    table = relationship("TableMetadata", back_populates="columns")

@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from src.core.salary_database import salary_engine, SalaryBase, SalarySessionLocal
-from src.models.salary_models import Department, Position, Employee, Incentive
+from src.models.salary_models import Department, Position, Employee, Incentive, TableMetadata, ColumnMetadata
 
 # Data from sample-data.ts
 raw_data = [
@@ -536,73 +536,209 @@ def seed_data():
     try:
         # Check if data already exists to avoid duplication
         if db.query(Employee).count() > 0:
-            print("Data already exists. Skipping seed.")
-            return
+            print("Employe data already exists.")
+        else:
+            print("Seeding employee data...")
 
-        print("Seeding data...")
+            # 1. Departments and Positions
+            departments = {}
+            positions = {}
 
-        # 1. Departments and Positions
-        departments = {}
-        positions = {}
-
-        for row in raw_data:
-            dept_name = row["department"]
-            pos_title = row["position"]
-            
-            # Create Department if not exists
-            if dept_name not in departments:
-                colors = department_colors.get(dept_name, { "bg": "#ffffff", "text": "#000000", "border": "#cccccc" })
-                dept = Department(
-                    name=dept_name,
-                    color_bg=colors["bg"],
-                    color_text=colors["text"],
-                    color_border=colors["border"]
-                )
-                db.add(dept)
-                db.flush() # flush to get ID
-                departments[dept_name] = dept
-            
-            # Create Position if not exists
-            if pos_title not in positions:
-                pos = Position(title=pos_title)
-                db.add(pos)
-                db.flush()
-                positions[pos_title] = pos
-
-        # 2. Employees and Incentives
-        for row in raw_data:
-            emp = Employee(
-                name=row["employee"],
-                department_id=departments[row["department"]].id,
-                position_id=positions[row["position"]].id,
-                salary=row["salary"],
-                performance=row["performance"],
-                status=row["status"],
-                growth=row["growth"],
-                join_date=datetime.strptime(row["joinDate"], "%Y-%m-%d").date(),
-                projects=row["projects"]
-            )
-            db.add(emp)
-            db.flush()
-            
-            # Generate 1-3 random incentives for each employee
-            num_incentives = random.randint(1, 3)
-            for _ in range(num_incentives):
-                # Random incentive amount between 1% and 10% of salary/12
-                amount = round(emp.salary / 12 * random.uniform(0.01, 0.10), 2)
-                # Random date within last year
-                date_offset = random.randint(0, 365)
-                date = datetime.now().date() - timedelta(days=date_offset)
+            for row in raw_data:
+                dept_name = row["department"]
+                pos_title = row["position"]
                 
-                incentive = Incentive(
-                    employee_id=emp.id,
-                    amount=amount,
-                    date=date
-                )
-                db.add(incentive)
+                # Create Department if not exists
+                if dept_name not in departments:
+                    colors = department_colors.get(dept_name, { "bg": "#ffffff", "text": "#000000", "border": "#cccccc" })
+                    dept = Department(
+                        name=dept_name,
+                        color_bg=colors["bg"],
+                        color_text=colors["text"],
+                        color_border=colors["border"]
+                    )
+                    db.add(dept)
+                    db.flush() # flush to get ID
+                    departments[dept_name] = dept
+                
+                # Create Position if not exists
+                if pos_title not in positions:
+                    pos = Position(title=pos_title)
+                    db.add(pos)
+                    db.flush()
+                    positions[pos_title] = pos
 
-        db.commit()
-        print("Seeding completed successfully!")
+            # 2. Employees and Incentives
+            for row in raw_data:
+                emp = Employee(
+                    name=row["employee"],
+                    department_id=departments[row["department"]].id,
+                    position_id=positions[row["position"]].id,
+                    salary=row["salary"],
+                    performance=row["performance"],
+                    status=row["status"],
+                    growth=row["growth"],
+                    join_date=datetime.strptime(row["joinDate"], "%Y-%m-%d").date(),
+                    projects=row["projects"]
+                )
+                db.add(emp)
+                db.flush()
+                
+                # Generate 1-3 random incentives for each employee
+                num_incentives = random.randint(1, 3)
+                for _ in range(num_incentives):
+                    # Random incentive amount between 1% and 10% of salary/12
+                    amount = round(emp.salary / 12 * random.uniform(0.01, 0.10), 2)
+                    # Random date within last year
+                    date_offset = random.randint(0, 365)
+                    date = datetime.now().date() - timedelta(days=date_offset)
+                    
+                    incentive = Incentive(
+                        employee_id=emp.id,
+                        amount=amount,
+                        date=date
+                    )
+                    db.add(incentive)
+
+            db.commit()
+            print("Employee seeding completed successfully!")
+
+        # 3. Seed Table Metadata
+        if db.query(TableMetadata).filter_by(table_name="employee_performance").first():
+            print("Metadata already exists. Skipping metadata seed.")
+        else:
+            print("Seeding metadata...")
+            table_meta = TableMetadata(
+                table_name="employee_performance",
+                title="Employee Performance Dashboard",
+                description="Displays employee performance, compensation, and engagement metrics across departments for monitoring workforce productivity and growth.",
+                table_description="Contains employee profile, role, salary, performance score, and project contribution details used for analytics dashboards.",
+                options={
+                    "enableSorting": True,
+                    "enableFiltering": True,
+                    "enablePagination": True,
+                    "enableRowSelection": True,
+                    "enableColumnPinning": True,
+                    "enableDensity": True,
+                    "defaultPageSize": 10,
+                    "searchColumn": "employee",
+                }
+            )
+            db.add(table_meta)
+            db.flush()
+
+            # Seed Column Metadata
+            columns_data = [
+                {
+                    "accessorKey": "employee",
+                    "header": "Employee",
+                    "description": "Employee name and profile identity used for display with avatar.",
+                    "width": 200,
+                    "cellType": "avatar",
+                },
+                {
+                    "accessorKey": "department",
+                    "header": "Department",
+                    "description": "Department to which the employee belongs.",
+                    "width": 140,
+                    "cellType": "badge",
+                    "cellConfig": { "colorMap": "dynamic" }, # Dynamic map will be resolved in API
+                },
+                {
+                    "accessorKey": "position",
+                    "header": "Position",
+                    "description": "Employee job title or role in the organization.",
+                    "width": 180,
+                    "cellType": "text",
+                },
+                {
+                    "accessorKey": "salary",
+                    "header": "Salary",
+                    "description": "Employee base salary used for compensation analytics.",
+                    "width": 130,
+                    "type": "number",
+                    "defaultChartType": "line",
+                    "cellType": "currency",
+                    "cellConfig": {
+                        "currency": "USD",
+                        "locale": "en-US",
+                    },
+                },
+                {
+                    "accessorKey": "incentive",
+                    "header": "Incentive",
+                    "description": "Total incentive amount for the employee.",
+                    "width": 130,
+                    "type": "number",
+                    "cellType": "currency",
+                    "cellConfig": {
+                        "currency": "USD",
+                        "locale": "en-US",
+                    },
+                },
+                {
+                    "accessorKey": "performance",
+                    "header": "Performance",
+                    "description": "Performance score representing employee evaluation metrics.",
+                    "width": 150,
+                    "type": "number",
+                    "defaultChartType": "bar",
+                    "cellType": "progress",
+                    "cellConfig": {
+                        "max": 100,
+                        "showPercentage": True,
+                    },
+                },
+                {
+                    "accessorKey": "status",
+                    "header": "Status",
+                    "description": "Current employment status such as Active, On Leave, or Resigned.",
+                    "width": 120,
+                    "cellType": "status",
+                },
+                {
+                    "accessorKey": "growth",
+                    "header": "Growth",
+                    "description": "Indicates employee growth trend based on recent performance cycles.",
+                    "width": 110,
+                    "cellType": "badge",
+                },
+                {
+                    "accessorKey": "joinDate",
+                    "header": "Join Date",
+                    "description": "Date when the employee joined the organization.",
+                    "width": 130,
+                    "cellType": "date",
+                    "cellConfig": {
+                        "format": "short",
+                    },
+                },
+                {
+                    "accessorKey": "projects",
+                    "header": "Projects",
+                    "description": "Number of projects the employee is currently assigned to.",
+                    "width": 100,
+                    "type": "number",
+                    "cellType": "number",
+                },
+            ]
+
+            for col in columns_data:
+                column_meta = ColumnMetadata(
+                    table_id=table_meta.id,
+                    accessor_key=col["accessorKey"],
+                    header=col["header"],
+                    description=col.get("description"),
+                    width=col.get("width"),
+                    type=col.get("type"),
+                    cell_type=col.get("cellType"),
+                    cell_config=col.get("cellConfig"),
+                    default_chart_type=col.get("defaultChartType")
+                )
+                db.add(column_meta)
+            
+            db.commit()
+            print("Metadata seeding completed!")
         
     except Exception as e:
         print(f"Error seeding data: {e}")
