@@ -20,6 +20,7 @@ from src.routers import (
     db_meta,
     e_commerce,
     salary_analytics,
+    salary_data_grid,
 )
 from src.core.authentication import (
     router as auth_router,
@@ -73,6 +74,7 @@ app.include_router(
 app.include_router(general.router)
 app.include_router(e_commerce.router)
 app.include_router(salary_analytics.router)
+app.include_router(salary_data_grid.router)
 
 # @app.middleware("http")
 # async def add_sal_tap(request: Request, call_next):
