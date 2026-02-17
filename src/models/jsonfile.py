@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, LargeBinary, create_engine,String
+from sqlalchemy import Column, Integer, LargeBinary, String, create_engine
+
 from src.core.database import Base
 
 
@@ -7,4 +8,4 @@ class FileModel(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     filename = Column(String(255), index=True)
-    content = Column(LargeBinary) 
+    content = Column(LargeBinary)

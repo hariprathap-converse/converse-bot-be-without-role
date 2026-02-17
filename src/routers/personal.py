@@ -1,6 +1,6 @@
 from datetime import date, datetime
 
-from fastapi import APIRouter, Depends, HTTPException, Path, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Path, status
 from sqlalchemy.orm import Session
 
 from src.core.authentication import (
@@ -13,7 +13,6 @@ from src.core.utils import hash_password, normalize_string, send_email
 from src.crud.personal import create_employee, get_employee, update_employee
 from src.models.personal import EmployeeOnboarding
 from src.schemas.personal import EmployeeCreate, EmployeeUpdate
-from fastapi import BackgroundTasks
 
 router = APIRouter(
     prefix="/personal", tags=["Personal"], responses={400: {"detail": "Not found"}}

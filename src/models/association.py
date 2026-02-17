@@ -1,5 +1,4 @@
-from sqlalchemy import (Column, ForeignKey, Integer, String, Table,
-                        UniqueConstraint)
+from sqlalchemy import Column, ForeignKey, Integer, String, Table, UniqueConstraint
 
 from src.core.database import Base
 

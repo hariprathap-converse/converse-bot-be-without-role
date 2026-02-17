@@ -1,23 +1,34 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, status
 from sqlalchemy.orm import Session
 
-from src.core.authentication import (get_current_employee,
-                                     get_current_employee_roles,
-                                     roles_required)
+from src.core.authentication import (
+    get_current_employee,
+    get_current_employee_roles,
+    roles_required,
+)
 from src.core.database import get_db
 from src.core.utils import hash_password, normalize_string
-from src.crud.employee import (create_employee_employment_details,
-                               delete_employee_employment_details,
-                               get_all_employee_employment_details,
-                               update_employee_employment_details)
-from src.crud.leave import (delete_employee_leave, get_calender_admin,
-                            get_employee_leave_by_month,
-                            get_leave_by_employee_id, get_leave_by_id,
-                            leave_calender, update_leave_calendar)
+from src.crud.employee import (
+    create_employee_employment_details,
+    delete_employee_employment_details,
+    get_all_employee_employment_details,
+    update_employee_employment_details,
+)
+from src.crud.leave import (
+    delete_employee_leave,
+    get_calender_admin,
+    get_employee_leave_by_month,
+    get_leave_by_employee_id,
+    get_leave_by_id,
+    leave_calender,
+    update_leave_calendar,
+)
 from src.crud.personal import get_employee, update_employee
 from src.models.personal import EmployeeOnboarding
-from src.schemas.employee import (EmployeeEmploymentDetailsCreate,
-                                  EmployeeEmploymentDetailsUpdate)
+from src.schemas.employee import (
+    EmployeeEmploymentDetailsCreate,
+    EmployeeEmploymentDetailsUpdate,
+)
 from src.schemas.leave import LeaveCalendarUpdate
 from src.schemas.personal import EmployeeUpdate
 
@@ -32,7 +43,7 @@ router = APIRouter(
     dependencies=[Depends(roles_required("admin"))],
 )
 async def read_employee_route(
-    employee_id: str = Path(...) ,
+    employee_id: str = Path(...),
     db: Session = Depends(get_db),
     current_employee=Depends(get_current_employee),
 ):
@@ -59,8 +70,7 @@ async def update_employee_data(
     current_employee=Depends(get_current_employee),
 ):
     employee_id_c = current_employee.employment_id
-    employee_role = get_current_employee_roles(
-        current_employee.id, db).name.lower()
+    employee_role = get_current_employee_roles(current_employee.id, db).name.lower()
 
     if employee_role == "admin":
         updated_employee = update_employee(db, employee_id, employee_update)
@@ -82,8 +92,7 @@ async def update_employee_data(
 @router.delete(
     "/employees/{employee_id}", dependencies=[Depends(roles_required("admin"))]
 )
-async def delete_employee_route(
-        employee_id: str, db: Session = Depends(get_db)):
+async def delete_employee_route(employee_id: str, db: Session = Depends(get_db)):
     db_employee = delete_employee_employment_details(db, employee_id)
     if db_employee is None:
         raise HTTPException(
@@ -100,8 +109,7 @@ async def create_employee(
     employee_employment.job_position = normalize_string(
         employee_employment.job_position
     )
-    employee_employment.department = normalize_string(
-        employee_employment.department)
+    employee_employment.department = normalize_string(employee_employment.department)
     employee_employment.email = normalize_string(employee_employment.email)
     employee_employment.password = hash_password(employee_employment.password)
     employee_employment.start_date = employee_employment.start_date
@@ -141,8 +149,7 @@ async def read_employee(
         )
 
 
-@router.put("/employees/update/admin",
-            dependencies=[Depends(roles_required("admin"))])
+@router.put("/employees/update/admin", dependencies=[Depends(roles_required("admin"))])
 async def update_employee_admin(
     employee_update: EmployeeEmploymentDetailsUpdate, db: Session = Depends(get_db)
 ):
@@ -158,10 +165,8 @@ async def update_employee_admin(
 @router.delete(
     "/employees/{employee_id}", dependencies=[Depends(roles_required("admin"))]
 )
-async def delete_employee_details(
-        employee_id: str, db: Session = Depends(get_db)):
-    db_employee = delete_employee_employment_details(
-        db, employee_id=employee_id)
+async def delete_employee_details(employee_id: str, db: Session = Depends(get_db)):
+    db_employee = delete_employee_employment_details(db, employee_id=employee_id)
     if db_employee is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Employee not found"
@@ -215,8 +220,7 @@ def get_leave_by_month(
     current_employee_id = current_employee.employment_id
     employee_role = get_current_employee_roles(current_employee.id, db)
     if employee_role.name == "admin":
-        data = get_employee_leave_by_month(
-            db, employee_id, monthnumber, yearnumber)
+        data = get_employee_leave_by_month(db, employee_id, monthnumber, yearnumber)
         if not data:
             return {
                 "detail": f"There is  No leaves this Month for Employee {employee_id}"
@@ -268,8 +272,7 @@ def delete_leave(
     return {"details": f"leave id :{leave_id} deleted successfully"}
 
 
-@router.put("/update/leave/calender/",
-            dependencies=[Depends(roles_required("admin"))])
+@router.put("/update/leave/calender/", dependencies=[Depends(roles_required("admin"))])
 async def update_leave(
     leave_update: LeaveCalendarUpdate, db: Session = Depends(get_db)
 ):
@@ -282,7 +285,6 @@ async def create_leave_calendar(db: Session = Depends(get_db)):
     return leave_calender(db)
 
 
-@router.get("/calender/{employee_id}",
-            dependencies=[Depends(roles_required("admin"))])
+@router.get("/calender/{employee_id}", dependencies=[Depends(roles_required("admin"))])
 async def get_leave_calendar(employee_id: str, db: Session = Depends(get_db)):
     return get_calender_admin(db, employee_id)

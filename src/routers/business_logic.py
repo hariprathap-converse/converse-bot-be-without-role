@@ -3,12 +3,11 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Path, Query, status
 from sqlalchemy.orm import Session
 
-from src.core.authentication import (get_current_employee,
-                                     roles_required)
+from src.core.authentication import get_current_employee, roles_required
 from src.core.database import get_db
 from src.core.utils import send_email_leave
-from src.crud.business_logic import (create_employee_leave_logic)
-from src.schemas.leave import (EmployeeLeaveCreate)
+from src.crud.business_logic import create_employee_leave_logic
+from src.schemas.leave import EmployeeLeaveCreate
 
 router = APIRouter(
     prefix="/leave", tags=["leave"], responses={400: {"detail": "Not found"}}

@@ -1,8 +1,17 @@
 from datetime import datetime
 from enum import Enum as PyEnum
 
-from sqlalchemy import (Column, Date, DateTime, Enum, Float, ForeignKey,
-                        Integer, String, Text)
+from sqlalchemy import (
+    Column,
+    Date,
+    DateTime,
+    Enum,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+)
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
@@ -33,10 +42,7 @@ class EmployeeLeave(Base):
     )
     start_date = Column(Date, nullable=False)
     end_date = Column(Date, nullable=False)
-    status = Column(
-        Enum(LeaveStatus),
-        default=LeaveStatus.PENDING,
-        nullable=False)
+    status = Column(Enum(LeaveStatus), default=LeaveStatus.PENDING, nullable=False)
     reason = Column(Text, nullable=True)
     reject_reason = Column(Text, nullable=True)
     created_at = Column(DateTime, default=func.now(), nullable=False)
@@ -44,9 +50,7 @@ class EmployeeLeave(Base):
         DateTime, default=func.now(), onupdate=func.now(), nullable=False
     )
 
-    employee = relationship(
-        "EmployeeEmploymentDetails",
-        back_populates="leaves")
+    employee = relationship("EmployeeEmploymentDetails", back_populates="leaves")
 
 
 class LeaveCalendar(Base):

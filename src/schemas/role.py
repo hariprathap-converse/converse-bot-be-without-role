@@ -26,8 +26,7 @@ class UpdateRole(BaseModel):
     personal_leave: Optional[int] = None
     vacation_leave: Optional[int] = None
 
-    @validator("sick_leave", "personal_leave",
-               "vacation_leave", pre=True, always=True)
+    @validator("sick_leave", "personal_leave", "vacation_leave", pre=True, always=True)
     def leave_must_be_positive(cls, v):
         if v is not None and v <= 0:
             raise ValueError("Leave values must be greater than 0")

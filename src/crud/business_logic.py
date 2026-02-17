@@ -1,17 +1,14 @@
-from datetime import timedelta
+from datetime import date, timedelta
 
 from fastapi import HTTPException, status
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from src.models.employee import EmployeeEmploymentDetails
+from src.models.leave import EmployeeLeave, LeaveCalendar, LeaveDuration
 from src.models.personal import EmployeeOnboarding
-from src.models.leave import (EmployeeLeave, LeaveDuration,LeaveCalendar)
 from src.models.role import Role
-from src.schemas.leave import (EmployeeLeaveCreate)
-from datetime import date, timedelta
-
-
+from src.schemas.leave import EmployeeLeaveCreate
 
 
 def create_leave_balance(
@@ -41,8 +38,7 @@ def create_leave_balance(
 
     # Retrieve the leave calendar entry for the given employee_id
     leave_calendar = (
-        db.query(LeaveCalendar).filter(
-            LeaveCalendar.employee_id == employee_id).first()
+        db.query(LeaveCalendar).filter(LeaveCalendar.employee_id == employee_id).first()
     )
 
     if not leave_calendar:
@@ -69,7 +65,6 @@ def create_leave_balance(
 
     if current_balance is not None and current_balance > 0:
         setattr(leave_calendar, field_name, current_balance - 1)
-
 
     else:
         leave_ids = [entry.id for entry in leave_entries if entry is not None]
@@ -98,51 +93,55 @@ def create_leave_balance(
     return leave_calendar
 
 
-
-
-def create_employee_leave_logic(db: Session, leave: EmployeeLeaveCreate, employee_id: str):
+def create_employee_leave_logic(
+    db: Session, leave: EmployeeLeaveCreate, employee_id: str
+):
     leave_entries = []
     employee_data = (
         db.query(EmployeeEmploymentDetails)
         .filter(EmployeeEmploymentDetails.employee_id == employee_id)
         .first()
     )
-    
+
     if not employee_data:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Employee '{employee_id}' not found",
         )
-    
+
     # Check if there is an existing leave entry on the same date for this employee
     existing_leave = (
         db.query(EmployeeLeave)
         .filter(EmployeeLeave.employee_id == employee_data.id)
-        .filter(EmployeeLeave.start_date  == leave.start_date)
+        .filter(EmployeeLeave.start_date == leave.start_date)
         .first()
     )
-    find_gender = db.query(EmployeeOnboarding).filter(EmployeeOnboarding.employment_id == employee_data.employee_id).first()
+    find_gender = (
+        db.query(EmployeeOnboarding)
+        .filter(EmployeeOnboarding.employment_id == employee_data.employee_id)
+        .first()
+    )
 
     if employee_data.releave_date and employee_data.releave_date >= date.today():
         raise HTTPException(
-        status_code=status.HTTP_400_BAD_REQUEST,
-        detail="Leave cannot be applied for employee when they in the time of notice period."
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Leave cannot be applied for employee when they in the time of notice period.",
         )
 
     if leave.leave_type.lower() == "maternity" and find_gender.gender != "female":
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Maternity leave is applicable only for female employees."
+            detail="Maternity leave is applicable only for female employees.",
         )
     if leave.total_days > 3:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="You cannot apply for more than 3 consecutive days of leave."
+            detail="You cannot apply for more than 3 consecutive days of leave.",
         )
     if existing_leave:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="Leave entry already exists for the specified date ."
+            detail="Leave entry already exists for the specified date .",
         )
 
     def map_leave_duration(leave_duration_str: str):
@@ -162,7 +161,7 @@ def create_employee_leave_logic(db: Session, leave: EmployeeLeaveCreate, employe
         if end_date.weekday() >= 5:  # Saturday is 5, Sunday is 6
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Leave application cannot include weekends."
+                detail="Leave application cannot include weekends.",
             )
         db_leave = EmployeeLeave(
             employee_id=employee_data.id,

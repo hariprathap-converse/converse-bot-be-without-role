@@ -1,37 +1,34 @@
+import logging
+
 import sqltap
-from fastapi import FastAPI, Depends, HTTPException, status, Request
+from apscheduler.schedulers.background import BackgroundScheduler
+from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
-from apscheduler.schedulers.background import BackgroundScheduler
 from starlette.responses import RedirectResponse
-from src.core.database import engine, SessionLocal
-from src.core.ecommerce_database import ecom_engine, EcomBase
+
 from src import models
+from src.core.authentication import get_current_user_function, oauth2_scheme
+from src.core.authentication import router as auth_router
+from src.core.database import SessionLocal, engine, get_db
+from src.core.ecommerce_database import EcomBase, ecom_engine
+from src.crud.chathistory import delete_expired_messages
+from src.models.ecommerce_models import *
 from src.routers import (
-    personal,
-    employee,
-    role,
-    leave,
     admin,
-    general,
-    chathistory,
     business_logic,
-    jsonfile,
+    chathistory,
     db_meta,
     e_commerce,
+    employee,
+    general,
+    jsonfile,
+    leave,
+    personal,
+    role,
     salary_analytics,
     salary_data_grid,
 )
-from src.core.authentication import (
-    router as auth_router,
-    oauth2_scheme,
-    get_current_user_function,
-)
-from src.crud.chathistory import delete_expired_messages
-import logging
-from src.core.database import get_db
-from src.models.ecommerce_models import *
-
 
 app = FastAPI()
 

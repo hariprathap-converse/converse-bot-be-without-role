@@ -1,54 +1,54 @@
+import calendar
+import io
+from datetime import datetime
 from typing import Optional
 
+import fillpdf.fillpdfs as fillpdfs
+from dateutil.relativedelta import relativedelta
 from fastapi import APIRouter, Depends, HTTPException, Path, Query, status
 from sqlalchemy.orm import Session
 
-from src.core.authentication import (get_current_employee,
-                                     get_current_employee_roles,
-                                     roles_required)
+from src.core.authentication import (
+    get_current_employee,
+    get_current_employee_roles,
+    roles_required,
+)
 from src.core.database import get_db
-from src.core.utils import normalize_string
-from src.crud.employee import (create_employee_employment_details,
-                               delete_employee_employment_details,
-                               get_all_employee_employment_details,
-                               get_all_employee_teamlead,
-                               get_all_employees,
-                               get_all_employee_details_slip,
-                               update_employee_employment_details)
-from src.schemas.employee import (EmployeeEmploymentDetailsCreate,
-                                  EmployeeEmploymentDetailsUpdate)
-
-from datetime import datetime
-import calendar
-import io
-import fillpdf.fillpdfs as fillpdfs
-from dateutil.relativedelta import relativedelta
-from src.core.utils import send_email_with_pdf_attachment
+from src.core.utils import normalize_string, send_email_with_pdf_attachment
+from src.crud.employee import (
+    create_employee_employment_details,
+    delete_employee_employment_details,
+    get_all_employee_details_slip,
+    get_all_employee_employment_details,
+    get_all_employee_teamlead,
+    get_all_employees,
+    update_employee_employment_details,
+)
 from src.crud.leave import get_leave_for_slip
+from src.schemas.employee import (
+    EmployeeEmploymentDetailsCreate,
+    EmployeeEmploymentDetailsUpdate,
+)
 
 router = APIRouter(
     prefix="/employee", tags=["employee"], responses={400: {"detail": "Not found"}}
 )
 
 
-@router.get(
-    "/employees/reademployee"
-)
+@router.get("/employees/reademployee")
 async def read_employee(
     db: Session = Depends(get_db),
 ):
-    current_employee_id ='cds0002'
+    current_employee_id = "cds0002"
     # current_employee_id = current_employee.employment_id
-    employee_role = 'teamlead'
+    employee_role = "teamlead"
     # employee_role = get_current_employee_roles(current_employee.id, db)
     # if employee_role.name == "employee":
     if employee_role == "employee":
-        db_employee = get_all_employee_employment_details(
-            db, current_employee_id)
+        db_employee = get_all_employee_employment_details(db, current_employee_id)
     # elif employee_role.name == "teamlead":
     elif employee_role == "teamlead":
-        db_employee = get_all_employee_employment_details(
-            db, current_employee_id)
+        db_employee = get_all_employee_employment_details(db, current_employee_id)
     if db_employee is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -56,14 +56,25 @@ async def read_employee(
         )
     return db_employee
 
-def write_fillable_pdf(input_pdf_path: str, output_pdf_stream: io.BytesIO, data_dict: dict):
+
+def write_fillable_pdf(
+    input_pdf_path: str, output_pdf_stream: io.BytesIO, data_dict: dict
+):
     # Fill the PDF with the provided data
     fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_stream, data_dict)
-    
-@router.get("/salary-slip/{month}",dependencies=[Depends(roles_required("admin","employee", "teamlead"))])
-async def get_salary_slip(month:int,current_employee=Depends(get_current_employee), db: Session = Depends(get_db)):
+
+
+@router.get(
+    "/salary-slip/{month}",
+    dependencies=[Depends(roles_required("admin", "employee", "teamlead"))],
+)
+async def get_salary_slip(
+    month: int,
+    current_employee=Depends(get_current_employee),
+    db: Session = Depends(get_db),
+):
     try:
-        employee_id=current_employee.employment_id
+        employee_id = current_employee.employment_id
         current_date = datetime.now()
         current_month = current_date.month
         current_year = current_date.year
@@ -80,13 +91,15 @@ async def get_salary_slip(month:int,current_employee=Depends(get_current_employe
         total_salary = per_day * total_days
         rounded_salary = round(total_salary)
 
-        form_fil = list(fillpdfs.get_form_fields('salary_slip.pdf').keys())
+        form_fil = list(fillpdfs.get_form_fields("salary_slip.pdf").keys())
         date_emplo = db_employee.start_date
         # Format the date to only display the date part (without time)
-        pay_period = current_date.strftime('%d-%m-%Y')  # You can adjust the format as needed
-        date_emplo = date_emplo.strftime('%d-%m-%Y')
-        data = {        
-            form_fil[0]:date_emplo,  # Date of Joining
+        pay_period = current_date.strftime(
+            "%d-%m-%Y"
+        )  # You can adjust the format as needed
+        date_emplo = date_emplo.strftime("%d-%m-%Y")
+        data = {
+            form_fil[0]: date_emplo,  # Date of Joining
             form_fil[1]: pay_period,  # Pay period (only date)
             form_fil[2]: total_days,  # Worked days
             form_fil[3]: db_employee.employee.firstname,  # Employee name
@@ -105,11 +118,15 @@ async def get_salary_slip(month:int,current_employee=Depends(get_current_employe
             form_fil[16]: round(per_day * count_of_leave),  # Total deductions
             form_fil[17]: rounded_salary,  # netpay
         }
-   
-        #fillpdfs.write_fillable_pdf(input_pdf_path='salary_slip.pdf',output_pdf_path='new.pdf',data_dict=data)
-        #Create an in-memory PDF
+
+        # fillpdfs.write_fillable_pdf(input_pdf_path='salary_slip.pdf',output_pdf_path='new.pdf',data_dict=data)
+        # Create an in-memory PDF
         pdf_stream = io.BytesIO()
-        write_fillable_pdf(input_pdf_path='salary_slip.pdf', output_pdf_stream=pdf_stream, data_dict=data)
+        write_fillable_pdf(
+            input_pdf_path="salary_slip.pdf",
+            output_pdf_stream=pdf_stream,
+            data_dict=data,
+        )
 
         # Move to the beginning of the BytesIO stream
         pdf_stream.seek(0)
@@ -117,13 +134,14 @@ async def get_salary_slip(month:int,current_employee=Depends(get_current_employe
         # Send the email with the PDF attachment
         send_email_with_pdf_attachment(db_employee.employee_email, pdf_stream)
 
-        #Close the BytesIO stream
+        # Close the BytesIO stream
         pdf_stream.close()  # Clear the BytesIO stream from memory
 
-        return {'details':"Salary Slip send to Email Successfully"}
+        return {"details": "Salary Slip send to Email Successfully"}
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(e))
-    
+
+
 @router.get("/employees", status_code=status.HTTP_200_OK)
 def fetch_all_employees(db: Session = Depends(get_db)):
     return get_all_employees(db)

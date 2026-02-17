@@ -1,9 +1,11 @@
+from collections import deque
+from typing import Any, List, Optional
+
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 from sqlalchemy import inspect, text
+
 from src.core.salary_database import salary_engine
-from collections import deque
-from typing import List, Optional, Any
 
 router = APIRouter(prefix="/analytics", tags=["analytics"])
 

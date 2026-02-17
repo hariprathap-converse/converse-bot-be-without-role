@@ -25,9 +25,7 @@ class EmployeeEmploymentDetailsBase(BaseModel):
                 parsed_date = parser.parse(value)
                 return parsed_date.date()  # Return as date object
             except (ValueError, TypeError):
-                raise ValueError(
-                    "Invalid date format. Please use a valid date string."
-                )
+                raise ValueError("Invalid date format. Please use a valid date string.")
         return value
 
 
@@ -54,9 +52,7 @@ class EmployeeEmploymentDetailsUpdate(BaseModel):
                 parsed_date = parser.parse(value)
                 return parsed_date.date()  # Return as date object
             except (ValueError, TypeError):
-                raise ValueError(
-                    "Invalid date format. Please use a valid date string."
-                )
+                raise ValueError("Invalid date format. Please use a valid date string.")
         return value
 
 

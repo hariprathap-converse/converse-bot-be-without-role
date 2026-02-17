@@ -101,8 +101,7 @@ def get_current_user_function(
     role_functions = (
         db.query(RoleFunction).filter(RoleFunction.role_id == role.id).all()
     )
-    role_function = [
-        role_function.function for role_function in role_functions]
+    role_function = [role_function.function for role_function in role_functions]
     role_file = [role_function.jsonfile for role_function in role_functions]
     return {
         "Employee_ID": employee.employment_id,
@@ -190,8 +189,7 @@ def get_role_functions_by_role_id(db: Session, role_id: int):
 def login_for_access_token(
     db: Session = Depends(get_db), form_data: OAuth2PasswordRequestForm = Depends()
 ):
-    employee = authenticate_employee(
-        db, form_data.username, form_data.password)
+    employee = authenticate_employee(db, form_data.username, form_data.password)
     if not employee:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -206,8 +204,7 @@ def login_for_access_token(
     role_functions = (
         db.query(RoleFunction).filter(RoleFunction.role_id == role.id).all()
     )
-    role_function = [
-        role_function.function for role_function in role_functions]
+    role_function = [role_function.function for role_function in role_functions]
     role_file = [role_function.jsonfile for role_function in role_functions]
     return {
         "access_token": access_token,
@@ -219,7 +216,7 @@ def login_for_access_token(
 
 
 def change_password(db: Session, hash_password_new: str, employee_id: int):
-   
+
     employee = (
         db.query(EmployeeEmploymentDetails)
         .filter(EmployeeEmploymentDetails.id == employee_id)
@@ -274,6 +271,7 @@ def read_employee_me(
     current_employee: EmployeeOnboarding = Depends(get_current_employee),
 ):
     return current_employee
+
 
 # @router.post("/forget-password")
 # async def ()

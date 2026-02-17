@@ -1,4 +1,5 @@
 import os
+
 import sqltap
 import sqltap.wsgi
 from dotenv import load_dotenv

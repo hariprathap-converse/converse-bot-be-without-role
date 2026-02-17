@@ -9,8 +9,13 @@ from src.core.utils import normalize_string
 from src.models.association import employee_role
 from src.models.personal import EmployeeOnboarding
 from src.models.role import Role, RoleFunction
-from src.schemas.role import (EmployeeRole, RoleCreate, RoleFunctionCreate,
-                              UpateRoleFunction, UpdateRole)
+from src.schemas.role import (
+    EmployeeRole,
+    RoleCreate,
+    RoleFunctionCreate,
+    UpateRoleFunction,
+    UpdateRole,
+)
 
 
 def create(db: Session, role: RoleCreate):
@@ -69,7 +74,7 @@ def get(db: Session):
     try:
         # Query all roles from the database
         roles_data = db.query(Role).all()
-        
+
         # Prepare the response data structure
         roles_response = [
             {
@@ -81,14 +86,15 @@ def get(db: Session):
             }
             for role in roles_data
         ]
-        
+
         return roles_response
 
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"An error occurred while fetching roles: {str(e)}"
+            detail=f"An error occurred while fetching roles: {str(e)}",
         )
+
 
 def get_single(db: Session, role_id: int):
     single_role = db.query(Role).filter(Role.id == role_id).first()
@@ -96,8 +102,7 @@ def get_single(db: Session, role_id: int):
 
 
 def get_function(db: Session, function: int):
-    single_function = db.query(RoleFunction).filter(
-        RoleFunction.id == function).first()
+    single_function = db.query(RoleFunction).filter(RoleFunction.id == function).first()
     return single_function
 
 
@@ -181,8 +186,7 @@ def create_role_function(db: Session, role_function: RoleFunctionCreate):
 
 
 def get_role_functions(db: Session, role_id: int):
-    response = db.query(RoleFunction).filter(
-        RoleFunction.role_id == role_id).all()
+    response = db.query(RoleFunction).filter(RoleFunction.role_id == role_id).all()
     # Reorganize the result in the desired order and return it
     formatted_result = [
         {
@@ -197,8 +201,7 @@ def get_role_functions(db: Session, role_id: int):
 
 def delete_role_function(db: Session, role_function_id: int):
     db_role_function = (
-        db.query(RoleFunction).filter(
-            RoleFunction.id == role_function_id).first()
+        db.query(RoleFunction).filter(RoleFunction.id == role_function_id).first()
     )
     if db_role_function:
         db.delete(db_role_function)

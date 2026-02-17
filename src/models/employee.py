@@ -1,7 +1,16 @@
 from datetime import date, datetime
 
-from sqlalchemy import (DECIMAL, Boolean, Column, Date, DateTime, ForeignKey,
-                        Integer, String, func)
+from sqlalchemy import (
+    DECIMAL,
+    Boolean,
+    Column,
+    Date,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+    func,
+)
 from sqlalchemy.orm import relationship, validates
 
 from src.core.database import Base
@@ -23,23 +32,17 @@ class EmployeeEmploymentDetails(Base):
     releave_date = Column(Date, default=None)
     is_active = Column(Boolean, nullable=False, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(
-        DateTime,
-        default=datetime.utcnow,
-        onupdate=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     # Ensure that the type of employee_id matches the type of employment_id in
     # EmployeeOnboarding
-    employee_id = Column(String(100), ForeignKey(
-        "employee_onboarding.employment_id"))
-    employee = relationship(
-        "EmployeeOnboarding",
-        back_populates="employment_details")
+    employee_id = Column(String(100), ForeignKey("employee_onboarding.employment_id"))
+    employee = relationship("EmployeeOnboarding", back_populates="employment_details")
     leaves = relationship("EmployeeLeave", back_populates="employee")
     leave_calendar = relationship(
         "LeaveCalendar", uselist=False, back_populates="employee"
     )
-    chathistory = relationship("ChatHistory",back_populates="employee")
+    chathistory = relationship("ChatHistory", back_populates="employee")
 
     @validates("is_active")
     def validate_is_active(self, key, value):

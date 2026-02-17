@@ -1,17 +1,20 @@
-from sqlalchemy import Column, Integer, String, Float, Date, ForeignKey, JSON
+from sqlalchemy import JSON, Column, Date, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+
 from src.core.salary_database import SalaryBase
+
 
 class Department(SalaryBase):
     __tablename__ = "departments"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(100), unique=True, index=True)
     color_bg = Column(String(20))
     color_text = Column(String(20))
     color_border = Column(String(20))
-    
+
     employees = relationship("Employee", back_populates="department")
+
 
 class Position(SalaryBase):
     __tablename__ = "positions"
@@ -21,9 +24,10 @@ class Position(SalaryBase):
 
     employees = relationship("Employee", back_populates="position")
 
+
 class Employee(SalaryBase):
     __tablename__ = "employee_performance"
-    
+
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(100), index=True)
     department_id = Column(Integer, ForeignKey("departments.id"))
@@ -34,10 +38,11 @@ class Employee(SalaryBase):
     growth = Column(String(20))
     join_date = Column(Date)
     projects = Column(Integer)
-    
+
     department = relationship("Department", back_populates="employees")
     position = relationship("Position", back_populates="employees")
     incentives = relationship("Incentive", back_populates="employee")
+
 
 class Incentive(SalaryBase):
     __tablename__ = "incentives"
@@ -49,6 +54,7 @@ class Incentive(SalaryBase):
 
     employee = relationship("Employee", back_populates="incentives")
 
+
 class TableMetadata(SalaryBase):
     __tablename__ = "table_metadata"
 
@@ -59,7 +65,10 @@ class TableMetadata(SalaryBase):
     table_description = Column(String(500))
     options = Column(JSON, nullable=True)
 
-    columns = relationship("ColumnMetadata", back_populates="table", cascade="all, delete-orphan")
+    columns = relationship(
+        "ColumnMetadata", back_populates="table", cascade="all, delete-orphan"
+    )
+
 
 class ColumnMetadata(SalaryBase):
     __tablename__ = "column_metadata"
@@ -70,9 +79,9 @@ class ColumnMetadata(SalaryBase):
     header = Column(String(100))
     description = Column(String(500))
     width = Column(Integer)
-    type = Column(String(50)) # 'number', 'string', etc.
-    cell_type = Column(String(50)) # 'avatar', 'badge', 'currency', etc.
+    type = Column(String(50))  # 'number', 'string', etc.
+    cell_type = Column(String(50))  # 'avatar', 'badge', 'currency', etc.
     cell_config = Column(JSON, nullable=True)
     default_chart_type = Column(String(50), nullable=True)
-    
+
     table = relationship("TableMetadata", back_populates="columns")

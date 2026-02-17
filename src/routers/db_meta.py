@@ -1,10 +1,10 @@
-from sqlalchemy import MetaData, Table
-from fastapi import APIRouter, HTTPException, status, Depends
-from sqlalchemy.orm import Session
-from sqlalchemy import inspect
 from functools import lru_cache
 
-from src.core.database import get_db, engine
+from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy import MetaData, Table, inspect
+from sqlalchemy.orm import Session
+
+from src.core.database import engine, get_db
 
 router = APIRouter()
 

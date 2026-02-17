@@ -1,18 +1,19 @@
-import requests
 import json
+
+import requests
 
 url = "http://localhost:8001/analytics/analytics"
 
 # Simplified payload structure
 payload = {
-  "table_name": "employee_performance",
-  "chart": {
-    "type": "bar",
-    "x": "department",
-    "y": "salary",
-    "x_table_name": "departments",
-    "y_table_name": "employee_performance"
-  }
+    "table_name": "employee_performance",
+    "chart": {
+        "type": "bar",
+        "x": "department",
+        "y": "salary",
+        "x_table_name": "departments",
+        "y_table_name": "employee_performance",
+    },
 }
 
 print("Testing Clean Analytics Payload (Department vs Salary)...")

@@ -1,6 +1,7 @@
 from datetime import date
 
 from fastapi import HTTPException, status
+from sqlalchemy import select
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
@@ -14,8 +15,6 @@ from src.schemas.employee import (
     EmployeeEmploymentDetailsUpdate,
     Login,
 )
-
-from sqlalchemy import select
 
 
 def create_employee_employment_details(

@@ -1,7 +1,9 @@
 from datetime import datetime  # Change here to import datetime instead of date
 from typing import Optional
+
 from dateutil import parser
 from pydantic import BaseModel, EmailStr, Field, ValidationError, field_validator
+
 
 class EmployeeBase(BaseModel):
     firstname: str
@@ -18,7 +20,9 @@ class EmployeeBase(BaseModel):
     def validate_phone_number(cls, value):
         contact_number_str = str(value)
         if len(contact_number_str) < 10:
-            raise ValueError("Invalid phone number length. Phone number must be 10 digits.")
+            raise ValueError(
+                "Invalid phone number length. Phone number must be 10 digits."
+            )
         return value
 
     @field_validator("dateofbirth", mode="before")
@@ -36,7 +40,9 @@ class EmployeeBase(BaseModel):
                 try:
                     # Use datetime to parse
                     parsed_date = datetime.strptime(value, fmt)
-                    return parsed_date.strftime("%Y-%m-%d")  # Convert to standard format
+                    return parsed_date.strftime(
+                        "%Y-%m-%d"
+                    )  # Convert to standard format
                 except ValueError:
                     continue  # Try the next format
 

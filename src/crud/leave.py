@@ -1,10 +1,10 @@
 from datetime import timedelta
 
 from fastapi import HTTPException, status
+from sqlalchemy import extract
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
-from sqlalchemy import extract
 
 from src.core.utils import normalize_string, send_email_leave
 from src.models.association import employee_role

@@ -1,7 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import (BigInteger, Column, Date, DateTime, Integer, String,
-                        Text)
+from sqlalchemy import BigInteger, Column, Date, DateTime, Integer, String, Text
 from sqlalchemy.orm import relationship
 
 from src.core.database import Base
@@ -24,15 +23,9 @@ class EmployeeOnboarding(Base):
     gender = Column(String(10))
     maritalstatus = Column(String(50))
     created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(
-        DateTime,
-        default=datetime.utcnow,
-        onupdate=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     employment_details = relationship(
         "EmployeeEmploymentDetails", back_populates="employee"
     )
-    roles = relationship(
-        "Role",
-        secondary=employee_role,
-        back_populates="employees")
+    roles = relationship("Role", secondary=employee_role, back_populates="employees")

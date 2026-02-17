@@ -1,14 +1,21 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from src.core.authentication import (get_current_employee,
-                                     get_current_employee_roles,
-                                     roles_required)
+from src.core.authentication import (
+    get_current_employee,
+    get_current_employee_roles,
+    roles_required,
+)
 from src.core.database import get_db
 from src.core.utils import normalize_string
 from src.crud.role import *
-from src.schemas.role import (EmployeeRole, RoleCreate, RoleFunctionCreate,
-                              UpateRoleFunction, UpdateRole)
+from src.schemas.role import (
+    EmployeeRole,
+    RoleCreate,
+    RoleFunctionCreate,
+    UpateRoleFunction,
+    UpdateRole,
+)
 
 router = APIRouter(
     prefix="/admin/roles", tags=["admin/role"], responses={400: {"detail": "Not found"}}
@@ -76,8 +83,7 @@ def create_new_role_function(
     return create_role_function(db, role_function)
 
 
-@router.get("/{role_id}/functions/",
-            dependencies=[Depends(roles_required("admin"))])
+@router.get("/{role_id}/functions/", dependencies=[Depends(roles_required("admin"))])
 def read_role_functions(
     role_id: int,
     db: Session = Depends(get_db),
@@ -97,8 +103,7 @@ def read_role_functions(
 
 
 @router.put("/function/", dependencies=[Depends(roles_required("admin"))])
-async def update_functions(request: UpateRoleFunction,
-                           db: Session = Depends(get_db)):
+async def update_functions(request: UpateRoleFunction, db: Session = Depends(get_db)):
     exists_role = get_function(db, request.function_id)
     if exists_role:
         update_function(db, request)
@@ -113,8 +118,7 @@ async def update_functions(request: UpateRoleFunction,
         )
 
 
-@router.delete("/functions/{id}",
-               dependencies=[Depends(roles_required("admin"))])
+@router.delete("/functions/{id}", dependencies=[Depends(roles_required("admin"))])
 def delete_existing_role_function(id: int, db: Session = Depends(get_db)):
     db_role_function = delete_role_function(db, id)
     if db_role_function is None:

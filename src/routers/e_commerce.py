@@ -1,16 +1,13 @@
-from fastapi import APIRouter, HTTPException, Depends, Query
-from sqlalchemy import text
+from datetime import datetime
+from typing import List, Optional
+
+from fastapi import APIRouter, Depends, HTTPException, Query
+from sqlalchemy import and_, func, or_, text
 from sqlalchemy.orm import Session
 
 from src.core.ecommerce_database import get_ecom_db
 from src.load_products import load_products
-from sqlalchemy import and_, or_, func
-from typing import Optional, List
-from datetime import datetime
-
-from src.core.ecommerce_database import get_ecom_db
-from src.models.ecommerce_models import Product, ProductTag, Review, Dimensions, Meta
-
+from src.models.ecommerce_models import Dimensions, Meta, Product, ProductTag, Review
 
 router = APIRouter(
     prefix="/products",

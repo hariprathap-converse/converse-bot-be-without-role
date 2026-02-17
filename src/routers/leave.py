@@ -1,6 +1,14 @@
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Path, Query, status
+from fastapi import (
+    APIRouter,
+    BackgroundTasks,
+    Depends,
+    HTTPException,
+    Path,
+    Query,
+    status,
+)
 from sqlalchemy.orm import Session
 
 from src.core.authentication import (
@@ -17,6 +25,7 @@ from src.crud.leave import (
     get_calender_tl,
     get_employee_leave_by_month,
     get_employee_leave_by_month_tl,
+    get_employee_tl,
     get_leave_by_admin,
     get_leave_by_employee_id,
     get_leave_by_employee_team,
@@ -25,7 +34,6 @@ from src.crud.leave import (
     leave_calender,
     update_employee_leave,
     update_employee_teamlead,
-    get_employee_tl,
     update_leave_calendar,
 )
 from src.models.leave import LeaveCalendar
@@ -35,7 +43,6 @@ from src.schemas.leave import (
     EmployeeLeaveUpdate,
     LeaveCalendarUpdate,
 )
-from fastapi import BackgroundTasks
 
 router = APIRouter(
     prefix="/leave", tags=["leave"], responses={400: {"detail": "Not found"}}

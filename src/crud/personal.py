@@ -2,15 +2,15 @@ from datetime import datetime
 
 from fastapi import HTTPException, status
 from sqlalchemy import insert
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from src.core.utils import generate_password, hash_password, normalize_string
 from src.models.association import employee_role
 from src.models.employee import EmployeeEmploymentDetails
+from src.models.leave import LeaveCalendar
 from src.models.personal import EmployeeOnboarding
 from src.models.role import Role
-from src.models.leave import LeaveCalendar
-from sqlalchemy.exc import IntegrityError
 from src.schemas.personal import EmployeeCreate, EmployeeUpdate
 
 
@@ -36,7 +36,7 @@ def create_employee(db: Session, employee: EmployeeCreate):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Email address already exists",
         )
-    if exist_number :
+    if exist_number:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Contact number already exists",
@@ -112,8 +112,9 @@ def create_employee(db: Session, employee: EmployeeCreate):
         "password": password,
     }
 
-#leave 
-#leave Calender 
+
+# leave
+# leave Calender
 def leave_calender(db: Session):
     # Retrieve roles for the given employee_id and role_id
     roles = db.query(employee_role).all()
@@ -124,8 +125,12 @@ def leave_calender(db: Session):
         if not role_data:
             continue  # Skip if no role data is found
         # Check if an entry already exists in LeaveCalendar
-        leave_calendar = db.query(LeaveCalendar).filter(LeaveCalendar.employee_id == role.employee_id).first()
-        
+        leave_calendar = (
+            db.query(LeaveCalendar)
+            .filter(LeaveCalendar.employee_id == role.employee_id)
+            .first()
+        )
+
         if leave_calendar:
             # Update existing LeaveCalendar entry
             continue
@@ -135,26 +140,21 @@ def leave_calender(db: Session):
                 employee_id=role.employee_id,
                 sick_leave=role_data.sick_leave,
                 personal_leave=role_data.personal_leave,
-                vacation_leave=role_data.vacation_leave
+                vacation_leave=role_data.vacation_leave,
             )
             db.add(leave_calendar)
             print(leave_calendar)
 
     try:
-        db.commit()  
+        db.commit()
     except IntegrityError as e:
-        db.rollback()  
+        db.rollback()
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Error saving leave calendar data"
+            detail="Error saving leave calendar data",
         )
-    
+
     return {"detail": "Leave calendar created successfully"}
-
-
-
-
-
 
 
 def get_employee(db: Session, employee_id: str):
@@ -183,8 +183,7 @@ def get_employee(db: Session, employee_id: str):
     }
 
 
-def update_employee(db: Session, employee_id: str,
-                    update_data: EmployeeUpdate):
+def update_employee(db: Session, employee_id: str, update_data: EmployeeUpdate):
     # Fetch the employee record
     db_employee = (
         db.query(EmployeeOnboarding)

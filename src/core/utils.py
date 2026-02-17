@@ -1,12 +1,12 @@
 import hashlib
+import io
 import os
 import random
 import smtplib
-import io
 import string
 from datetime import datetime, timedelta
-from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from dotenv import load_dotenv
@@ -106,21 +106,22 @@ def send_email_with_pdf_attachment(recipient_email: str, pdf_stream: io.BytesIO)
         sender_email = os.getenv("SENDER_EMAIL")
         password = os.getenv("EMAIL_PASSWORD")
         msg = MIMEMultipart()
-        msg['From'] = sender_email  # Replace with your email
-        msg['To'] = "logger143@outlook.com"
-        msg['Subject'] = "Your Salary Slip"
+        msg["From"] = sender_email  # Replace with your email
+        msg["To"] = "logger143@outlook.com"
+        msg["Subject"] = "Your Salary Slip"
 
         # Attach the PDF to the email
         pdf_stream.seek(0)  # Ensure you're at the beginning of the stream
-        pdf_attachment = MIMEApplication(pdf_stream.read(), Name='salary_slip.pdf')
-        pdf_attachment['Content-Disposition'] = 'attachment; filename="salary_slip.pdf"'
+        pdf_attachment = MIMEApplication(pdf_stream.read(), Name="salary_slip.pdf")
+        pdf_attachment["Content-Disposition"] = 'attachment; filename="salary_slip.pdf"'
         msg.attach(pdf_attachment)
 
         # Send the email via SMTP
-        with smtplib.SMTP('smtp.gmail.com', 587) as server:  # Replace with your SMTP server and port
+        with smtplib.SMTP(
+            "smtp.gmail.com", 587
+        ) as server:  # Replace with your SMTP server and port
             server.starttls()  # Secure the connection
             server.login(sender_email, password)  # Replace with your email and password
             server.send_message(msg)
     except Exception as e:
-        raise HTTPException(
-            status_code=500,detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))

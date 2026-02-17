@@ -1,16 +1,16 @@
-import requests
 from datetime import datetime
+
+import requests
 
 from src.core.ecommerce_database import EcomSessionLocal
 from src.models.ecommerce_models import (
-    Product,
     Dimensions,
-    Review,
+    Meta,
+    Product,
     ProductImage,
     ProductTag,
-    Meta,
+    Review,
 )
-
 
 API_URL = "https://dummyjson.com/products?limit=100&skip={}"
 

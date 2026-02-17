@@ -6,8 +6,14 @@ from fastapi import FastAPI
 from sqlalchemy import MetaData, Table, create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models import (Base, EmployeeEmploymentDetails, EmployeeOnboarding, Role,
-                    RoleFunction, employee_role)
+from models import (
+    Base,
+    EmployeeEmploymentDetails,
+    EmployeeOnboarding,
+    Role,
+    RoleFunction,
+    employee_role,
+)
 from src.core.utils import hash_password
 from src.models.leave import EmployeeLeave, LeaveDuration, LeaveStatus
 
@@ -33,11 +39,7 @@ def insert_dummy_data():
 
     # Insert roles
     # Dummy data for roles
-    admin_role = Role(
-        name="admin",
-        sick_leave=10,
-        personal_leave=5,
-        vacation_leave=15)
+    admin_role = Role(name="admin", sick_leave=10, personal_leave=5, vacation_leave=15)
 
     teamlead_role = Role(
         name="teamlead", sick_leave=8, personal_leave=4, vacation_leave=12
@@ -396,10 +398,7 @@ def insert_dummy_data():
     session.commit()
 
     # Insert roles
-    employee_role_table = Table(
-        "employee_role",
-        metadata,
-        autoload_with=engine)
+    employee_role_table = Table("employee_role", metadata, autoload_with=engine)
 
     session.execute(
         employee_role_table.insert().values(
