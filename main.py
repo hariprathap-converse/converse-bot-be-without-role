@@ -13,7 +13,6 @@ from src.core.authentication import router as auth_router
 from src.core.database import SessionLocal, engine, get_db
 from src.core.ecommerce_database import EcomBase, ecom_engine
 from src.core.salary_database import SalaryBase, salary_engine
-
 from src.crud.chathistory import delete_expired_messages
 from src.models.ecommerce_models import *
 from src.routers import (
