@@ -2,6 +2,7 @@ import os
 import random
 import sys
 from datetime import datetime, timedelta
+from sqlalchemy import inspect
 
 # Add src to python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -535,6 +536,54 @@ department_colors = {
 }
 
 
+def build_column_table_map(engine):
+    inspector = inspect(engine)
+
+    column_table_map = {}
+
+    for table_name in inspector.get_table_names():
+        columns = inspector.get_columns(table_name)
+
+        for col in columns:
+            column_table_map[col["name"]] = table_name
+
+    return column_table_map
+
+
+# def resolve_column_source(engine, accessor_key):
+#     inspector = inspect(engine)
+
+#     employee_table = Employee.__tablename__
+#     incentive_table = Incentive.__tablename__
+
+#     employee_columns = [c["name"] for c in inspector.get_columns(employee_table)]
+#     incentive_columns = [c["name"] for c in inspector.get_columns(incentive_table)]
+
+#     # employee table column
+#     if accessor_key in employee_columns:
+#         return False, employee_table
+
+#     # derived/related table column
+#     if accessor_key == "incentives" or accessor_key in incentive_columns:
+#         return True, incentive_table
+
+#     return False, employee_table
+
+
+def resolve_column_source(accessor_key, column_table_map, parent_table):
+    # special case: aggregated field
+    if accessor_key == "incentives":
+        return True, "incentives"
+
+    table_name = column_table_map.get(accessor_key)
+
+    if table_name is None:
+        return False, parent_table
+
+    isseperated = table_name != parent_table
+    return isseperated, table_name
+
+
 def seed_data():
     # Create tables
     SalaryBase.metadata.create_all(salary_engine)
@@ -674,8 +723,8 @@ def seed_data():
                     },
                 },
                 {
-                    "accessorKey": "incentive",
-                    "header": "Incentive",
+                    "accessorKey": "incentives",
+                    "header": "Incentives",
                     "description": "Total incentive amount for the employee.",
                     "width": 130,
                     "type": "number",
@@ -731,8 +780,16 @@ def seed_data():
                     "cellType": "number",
                 },
             ]
+            column_table_map = build_column_table_map(salary_engine)
+            parent_table = Employee.__tablename__
 
             for col in columns_data:
+                isseperated, parent_table_name = resolve_column_source(
+                    col["accessorKey"],
+                    column_table_map,
+                    parent_table,
+                )
+
                 column_meta = ColumnMetadata(
                     table_id=table_meta.id,
                     accessor_key=col["accessorKey"],
@@ -743,7 +800,10 @@ def seed_data():
                     cell_type=col.get("cellType"),
                     cell_config=col.get("cellConfig"),
                     default_chart_type=col.get("defaultChartType"),
+                    isseperated=isseperated,
+                    parent_table_name=parent_table_name,
                 )
+
                 db.add(column_meta)
 
             db.commit()

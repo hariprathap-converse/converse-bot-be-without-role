@@ -12,10 +12,10 @@ from src.models.salary_models import (
     TableMetadata,
 )
 
-router = APIRouter(tags=["salary-data"])
+router = APIRouter(tags=["data-grid"])
 
 
-@router.get("/salary-data")
+@router.get("/data-grid")
 def get_salary_data(
     table: str = "employee_performance", db: Session = Depends(get_salary_db)
 ):
@@ -61,6 +61,8 @@ def get_salary_data(
             "description": col.description,
             "width": col.width,
             "cellType": col.cell_type,
+            "isSeparated": col.isseperated,
+            "parentTable": col.parent_table_name,
         }
 
         if col.type:
@@ -98,7 +100,7 @@ def get_salary_data(
                     "growth": emp.growth,
                     "joinDate": emp.join_date.isoformat(),
                     "projects": emp.projects,
-                    "incentive": total_incentive,
+                    "incentives": total_incentive,
                 }
             )
     else:

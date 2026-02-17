@@ -1,4 +1,4 @@
-from sqlalchemy import JSON, Column, Date, Float, ForeignKey, Integer, String
+from sqlalchemy import JSON, Column, Date, Float, ForeignKey, Integer, String,Boolean
 from sqlalchemy.orm import relationship
 
 from src.core.salary_database import SalaryBase
@@ -83,5 +83,7 @@ class ColumnMetadata(SalaryBase):
     cell_type = Column(String(50))  # 'avatar', 'badge', 'currency', etc.
     cell_config = Column(JSON, nullable=True)
     default_chart_type = Column(String(50), nullable=True)
+    isseperated = Column(Boolean, default=False)
+    parent_table_name = Column(String(100), nullable=True)
 
     table = relationship("TableMetadata", back_populates="columns")

@@ -7,11 +7,11 @@ BASE_URL = "http://localhost:8001"
 
 
 def test_dynamic_table_config():
-    print(f"Testing GET {BASE_URL}/salary-data...")
+    print(f"Testing GET {BASE_URL}/data-grid...")
 
     try:
         # 1. Test Default Table (employee_performance)
-        response = requests.get(f"{BASE_URL}/salary-data")
+        response = requests.get(f"{BASE_URL}/data-grid")
         response.raise_for_status()
         data = response.json()
 
@@ -36,8 +36,8 @@ def test_dynamic_table_config():
         print("\n[SUCCESS] Dynamic color map resolution verified.")
 
         # 2. Test Invalid Table Name
-        print(f"\nTesting GET {BASE_URL}/salary-data?table=non_existent...")
-        response_invalid = requests.get(f"{BASE_URL}/salary-data?table=non_existent")
+        print(f"\nTesting GET {BASE_URL}/data-grid?table=non_existent...")
+        response_invalid = requests.get(f"{BASE_URL}/data-grid?table=non_existent")
         assert response_invalid.status_code == 404
         print("[SUCCESS] Invalid table returned 404 as expected.")
 
