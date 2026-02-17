@@ -121,3 +121,9 @@ def load_products():
     db.close()
 
     print(f"Imported {len(products)} products successfully!")
+    
+if __name__ == "__main__":
+
+    load_products()
+
+ 

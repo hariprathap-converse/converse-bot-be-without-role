@@ -12,6 +12,8 @@ from src.core.authentication import get_current_user_function, oauth2_scheme
 from src.core.authentication import router as auth_router
 from src.core.database import SessionLocal, engine, get_db
 from src.core.ecommerce_database import EcomBase, ecom_engine
+from src.core.salary_database import SalaryBase, salary_engine
+
 from src.crud.chathistory import delete_expired_messages
 from src.models.ecommerce_models import *
 from src.routers import (
@@ -35,7 +37,7 @@ app = FastAPI()
 # Create all database tables
 models.Base.metadata.create_all(bind=engine)
 EcomBase.metadata.create_all(bind=ecom_engine)
-
+SalaryBase.metadata.create_all(bind=salary_engine)
 # CORS Middleware configuration
 app.add_middleware(
     CORSMiddleware,
