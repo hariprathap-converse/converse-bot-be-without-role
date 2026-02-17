@@ -11,6 +11,7 @@ router = APIRouter(prefix="/analytics", tags=["analytics"])
 # Request Models
 # -----------------------------
 
+
 class ChartConfigInput(BaseModel):
     type: str
     x: str
@@ -18,13 +19,16 @@ class ChartConfigInput(BaseModel):
     x_table_name: str
     y_table_name: str
 
+
 class AnalyticsRequest(BaseModel):
-    table_name: str # The main table context from frontend
-    chart: ChartConfigInput # Explicit chart config is now required
+    table_name: str  # The main table context from frontend
+    chart: ChartConfigInput  # Explicit chart config is now required
+
 
 # -----------------------------
 # Graph & Path Logic
 # -----------------------------
+
 
 def build_relationship_graph():
     inspector = inspect(salary_engine)
@@ -42,10 +46,11 @@ def build_relationship_graph():
             graph[referred_table].append(table)
     return graph
 
+
 def find_join_path(start, end, graph):
     if start == end:
         return [start]
-        
+
     queue = deque([(start, [start])])
     visited = set()
 
@@ -58,6 +63,7 @@ def find_join_path(start, end, graph):
             if neighbor not in visited:
                 queue.append((neighbor, path + [neighbor]))
     return None
+
 
 def build_join_chain(path):
     inspector = inspect(salary_engine)
@@ -77,7 +83,7 @@ def build_join_chain(path):
                 join_sql += f" JOIN {table_b} ON {table_a}.{local_col} = {table_b}.{remote_col} "
                 matched = True
                 break
-        
+
         # Check reverse FK (B -> A)
         if not matched:
             fks_b = inspector.get_foreign_keys(table_b)
@@ -90,9 +96,11 @@ def build_join_chain(path):
                     break
     return join_sql
 
+
 # -----------------------------
 # Logic Helper
 # -----------------------------
+
 
 def resolve_table_for_column(col_name: str, main_table: str):
     """
@@ -109,27 +117,29 @@ def resolve_table_for_column(col_name: str, main_table: str):
     else:
         return main_table, col_name
 
+
 # -----------------------------
 # Endpoint
 # -----------------------------
 
+
 @router.post("/analytics")
 def analytics(req: AnalyticsRequest):
     graph = build_relationship_graph()
-    
+
     # Use explicit chart config
     x_col = req.chart.x
     y_col = req.chart.y
     x_table = req.chart.x_table_name
     y_table = req.chart.y_table_name
     chart_type = req.chart.type
-    
+
     # 1. Start building SQL logic
     start_table = y_table
     target_table = x_table
-    
+
     full_join_sql = ""
-    
+
     if start_table != target_table:
         path = find_join_path(start_table, target_table, graph)
         if path:
@@ -137,12 +147,15 @@ def analytics(req: AnalyticsRequest):
         else:
             # Try finding path via the main table context if direct path fails?
             # Or just fail.
-             raise HTTPException(status_code=400, detail=f"Cannot find join path between {start_table} and {target_table}")
+            raise HTTPException(
+                status_code=400,
+                detail=f"Cannot find join path between {start_table} and {target_table}",
+            )
 
     # Resolve DB column names (handling 'department' -> 'name' mapping)
     _, x_db_col = resolve_table_for_column(x_col, x_table)
     _, y_db_col = resolve_table_for_column(y_col, y_table)
-    
+
     # Grouped Query
     grouped_sql = f"""
     SELECT 
@@ -156,7 +169,7 @@ def analytics(req: AnalyticsRequest):
     GROUP BY {x_table}.{x_db_col}
     ORDER BY x
     """
-    
+
     # Summary Query
     summary_sql = f"""
     SELECT 
@@ -167,13 +180,15 @@ def analytics(req: AnalyticsRequest):
     FROM {start_table}
     {full_join_sql}
     """
-    
+
     try:
         with salary_engine.connect() as conn:
             grouped_rows = conn.execute(text(grouped_sql)).mappings().all()
             summary_row = conn.execute(text(summary_sql)).mappings().first()
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}\nQuery: {grouped_sql}")
+        raise HTTPException(
+            status_code=500, detail=f"Database error: {str(e)}\nQuery: {grouped_sql}"
+        )
 
     response = {
         "chart": {
@@ -181,10 +196,10 @@ def analytics(req: AnalyticsRequest):
             "x": x_col,
             "y": y_col,
             "x_table_name": x_table,
-            "y_table_name": y_table
+            "y_table_name": y_table,
         },
         "grouped": grouped_rows,
-        "summary": summary_row
+        "summary": summary_row,
     }
-    
+
     return response
